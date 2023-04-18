@@ -23,20 +23,20 @@
 							<div class="card">
 								<div class="card-header"></div>
 								<div class="card-body">
-									<form action="DB/newadDB.jsp" method="post"
+									<form action="newadDB.jsp" method="post"
 										class=" needs-validation" enctype="multipart/form-data"
 										novalidate>
 										<div class="mb-3">
 											<label for="title" class="form-label">Ad Title</label> <input
-												type="text" class="form-control " id="adtitle" name="adtitle"
-												placeholder="eg.Apple Iphone 11" required>
+												type="text" class="form-control " id="adtitle"
+												name="adtitle" placeholder="eg.Apple Iphone 11" required>
 											<div class="invalid-feedback">Please provide a title
 												for your ad.</div>
 										</div>
 										<div class="mb-3">
 											<label for="category">Category</label> <select
 												class="form-control form-select" id="category"
-												name="adcategory" required>
+												name="adcategory" >
 												<option value="">Select a category</option>
 
 											</select>
@@ -65,7 +65,7 @@
 											<label for="image">Image</label>
 											<div class="custom-file">
 												<input type="file" class="custom-file-input form-label"
-													id="adimage" name="image" required> <label
+													id="adimage" name="adimage" required> <label
 													class="custom-file-label" for="image"></label>
 												<div class="invalid-feedback">Please choose an image
 													for your ad.</div>
@@ -74,25 +74,25 @@
 
 										<h4>Posted By Details -</h4>
 										<div class="mb-3">
-											<label for="title" class="form-label">Your Shop Name -</label> <input
-												type="text" class="form-control " id="shopname" name="shopname"
-												required>
+											<label for="title" class="form-label">Your Shop Name
+												-</label> <input type="text" class="form-control " id="shopname"
+												name="shopname" required>
 											<div class="invalid-feedback">Please provide a Your
 												Name.</div>
 										</div>
 										<div class="mb-3">
-											<label for="title" class="form-label"> Shop Address -</label> <input
-												type="text" class="form-control " id="shopaddress" name="shopaddress"
-												required>
+											<label for="title" class="form-label"> Shop Address -</label>
+											<input type="text" class="form-control " id="shopaddress"
+												name="shopaddress" required>
 											<div class="invalid-feedback">Please provide a Your
 												Name.</div>
 										</div>
 										<div class="mb-3">
 											<label for="title" class="form-label">Email -</label> <input
-												type="email" class="form-control" id="shoperemail" name="shoperemail"
-												required>
+												type="email" class="form-control" id="shoperemail"
+												name="shoperemail" required>
 											<div class="invalid-feedback">Please provide a Your
-											Email.</div>
+												Email.</div>
 										</div>
 										<div class="mb-3">
 											<label for="title" class="form-label">Phone -</label>
@@ -102,11 +102,13 @@
 												</div>
 												<input type="number" class="form-control" id="shoperphone"
 													name="shoperphone" required>
-												<div class="invalid-feedback">Please provide a phone number.</div>
+												<div class="invalid-feedback">Please provide a phone
+													number.</div>
 											</div>
 										</div>
 										<div class="text-end">
-											<button type="submit" class="btn btn-success">Post Your Ad</button>
+											<button type="submit" class="btn btn-success">Post
+												Your Ad</button>
 										</div>
 									</form>
 								</div>

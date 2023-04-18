@@ -67,7 +67,7 @@
 								class="fa fa-check-square text-primary"></i> 10GB Disk Space</li>
 							<li class="list-group-item"><i
 								class="fa fa-check-square text-primary"></i> 100% Secure!</li>
-							<li class="list-group-item"><a href="#"
+							<li class="list-group-item"><a href="signup.jsp"
 								class="btn btn-primary">Sign Up!</a></li>
 							</li>
 						</ul>
@@ -101,7 +101,7 @@
 								title="Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae,">
 									&nbsp;<i class="fa fa-info-circle"></i>
 							</a></li>
-							<li class="list-group-item"><a href="#"
+							<li class="list-group-item"><a href="signup.jsp"
 								class="btn btn-primary btn-lg">Sign Up!</a></li>
 							</li>
 						</ul>
@@ -130,7 +130,7 @@
 								class="fa fa-check-square text-primary"></i> 10GB Disk Space</li>
 							<li class="list-group-item"><i
 								class="fa fa-check-square text-primary"></i> 100% Secure!</li>
-							<li class="list-group-item"><a href="#"
+							<li class="list-group-item"><a href="signup.jsp"
 								class="btn btn-primary">Sign Up!</a></li>
 						</ul>
 					</div>

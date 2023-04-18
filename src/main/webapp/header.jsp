@@ -114,6 +114,11 @@
 				<li class="nav-item"><a class="nav-link" href="chat.jsp">
 						<button class="btn btn-primary" type="button">Chat</button>
 				</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="shopkeeperRegister.jsp">
+						<button class="btn btn-primary" type="button">Post Free
+							Ad</button>
+				</a></li>
 
 			</ul>
 		</div>

@@ -12,7 +12,6 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	
 	 <section class="breadcumb_area">
         <div class="container">
             <div class="row d-flex justify-content-center">
@@ -42,30 +41,30 @@
                         <div class="widget-header">
                             <h1>Contact Us</h1>
                         </div>
-                        <form method="POST" action="#" id="contactForm" novalidate="novalidate">
+                        <form method="POST" action="contactDB.jsp" id="contactForm" novalidate="novalidate">
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label class="control-label">Your Name <span class="required">*</span></label>
-                                        <input type="text" name="" value="" placeholder="Enter Name"
+                                        <input type="text" name="contactname" value="" placeholder="Enter Name"
                                             class="form-control" maxlength="100">
                                     </div>
                                     <div class="col-md-6">
                                         <label class="control-label">Your Email Address <span
                                                 class="required">*</span></label>
-                                        <input type="email" name="" value="" placeholder="Enter Email Address"
+                                        <input type="email" name="contactemail" value="" placeholder="Enter Email Address"
                                             class="form-control">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Subject</label>
-                                <input type="text" name="" value="" placeholder="Enter The Subject"
+                                <input type="text" name="contactsubject" value="" placeholder="Enter The Subject"
                                     class="form-control">
                             </div>
                             <div class="form-group">
                                 <label class="control-label">Message <span class="required">*</span></label>
-                                <textarea placeholder="Enter Message" name="message" class="form-control"
+                                <textarea placeholder="Enter Message" name="contactmessage" class="form-control"
                                     rows="3"></textarea>
                             </div>
                             <div class="text-right">

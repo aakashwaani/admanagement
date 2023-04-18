@@ -45,120 +45,128 @@
 				<div class="col-lg-12 col-md-8 col-lg-12">
 					<div class="row">
 						<div class="col-lg-3">
-							<div class="item">
-								<div class="item-ads-grid icon-orange">
-									<div class="item-badge-grid featured-ads">
-										<a href="#">HOT</a>
-									</div>
-									<div class="item-img-grid">
-										<img alt="" src="assets/images/categories/hotels/1.png"
-											class="img-responsive img-center">
-										<div class="item-title">
-											<a href="singlead.jsp">
-												<h4>Passage of Lorem Ipsum</h4>
-											</a>
-											<h3>$ 64.5000</h3>
-										</div>
-									</div>
-									<div class="item-meta">
-										<ul>
-											<li class="item-date"><i class="fa fa-clock-o"></i>
-												Today 02.05 AM</li>
-											<li class="item-cat"><i class="fa fa-building-o"></i> <a
-												href="categories2.html">Hotels</a> , <a
-												href="categories2.html">Events & Nightlife</a></li>
-											<li class="item-location"><a href="categories2.html"><i
-													class="fa fa-map-marker"></i> Fairbanks</a></li>
-											<li class="item-type"><i class="fa fa-bookmark"></i> New</li>
-										</ul>
-									</div>
+
+							<div class="card my-4">
+								<div class="bg-image hover-overlay ripple"
+									data-mdb-ripple-color="light">
+									<img
+										src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/db78d972182051.5bdf1de4dcf77.jpg//"
+										class="img-fluid" /> <a href="#!"> </a>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title font-weight-bold">
+										<a>Bungh Food Festival at Sayaji Hotel</a>
+									</h5>
+									<p class="card-text">Bungh Food Festival at Sayaji Hotel.
+										This food festival featured cuisines from 3 states of India
+										i.e. Bihar, West Bengal and Orissa.</p>
+									<hr class="my-4" />
 								</div>
 							</div>
-							<div class="item">
-								<div class="item-ads-grid icon-blue">
-									<div class="item-badge-grid featured-ads">
-										<a href="#">HOT</a>
-									</div>
-									<div class="item-img-grid">
-										<img alt="" src="images/categories/restaurant/1.png"
-											class="img-responsive img-center">
-										<div class="item-title">
-											<a href="single.html">
-												<h4>There are many variations</h4>
-											</a>
-											<h3>$ 64.5000</h3>
-										</div>
-									</div>
-									<div class="item-meta">
-										<ul>
-											<li class="item-date"><i class="fa fa-clock-o"></i>
-												Today 10.35 AM</li>
-											<li class="item-cat"><i class="fa fa-glass"></i> <a
-												href="categories2.html">Restaurant</a> , <a
-												href="categories2.html">Cafe</a></li>
-											<li class="item-location"><a href="categories2.html"><i
-													class="fa fa-map-marker"></i> Buffalo </a></li>
-											<li class="item-type"><i class="fa fa-bookmark"></i> New</li>
-										</ul>
-									</div>
+
+
+
+							<div class="card">
+								<div class="bg-image hover-overlay ripple"
+									data-mdb-ripple-color="light">
+									<img
+										src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg"
+										class="img-fluid" /> <a href="#!"> </a>
+								</div>
+								<div class="card-body">
+									<h5 class="card-title font-weight-bold">
+										<a>La Sirena restaurant</a>
+									</h5>
+									<ul class="list-unstyled list-inline mb-0">
+										<li class="list-inline-item me-0"><i
+											class="fas fa-star text-warning fa-xs"> </i></li>
+										<li class="list-inline-item me-0"><i
+											class="fas fa-star text-warning fa-xs"></i></li>
+										<li class="list-inline-item me-0"><i
+											class="fas fa-star text-warning fa-xs"></i></li>
+										<li class="list-inline-item me-0"><i
+											class="fas fa-star text-warning fa-xs"></i></li>
+										<li class="list-inline-item"><i
+											class="fas fa-star-half-alt text-warning fa-xs"></i></li>
+										<li class="list-inline-item">
+											<p class="text-muted">4.5 (413)</p>
+										</li>
+									</ul>
+									<p class="mb-2">$ • American, Restaurant</p>
+									<p class="card-text">Some quick example text to build on
+										the card title and make up the bulk of the card's content.</p>
+									<hr class="my-4" />
+									<p class="lead">
+										<strong>Tonight's availability</strong>
+									</p>
+									<ul
+										class="list-unstyled list-inline d-flex justify-content-between">
+										<li class="list-inline-item me-0">
+											<div class="chip me-0">5:30PM</div>
+										</li>
+										<li class="list-inline-item me-0">
+											<div class="chip bg-secondary text-white me-0">7:30PM</div>
+										</li>
+										<li class="list-inline-item me-0">
+											<div class="chip me-0">8:00PM</div>
+										</li>
+										<li class="list-inline-item me-0">
+											<div class="chip me-0">9:00PM</div>
+										</li>
+									</ul>
+									<a href="#!" class="btn btn-link link-secondary p-md-1 mb-0">Button</a>
 								</div>
 							</div>
-							<div class="item">
-								<div class="item-ads-grid icon-green">
-									<div class="item-badge-grid hot-ads">
-										<a href="#">HOT</a>
-									</div>
-									<div class="item-img-grid">
-										<img alt="" src="images/categories/real_estate/2.png"
-											class="img-responsive img-center">
-										<div class="item-title">
-											<a href="single.html">
-												<h4>Lorem Ipsum is simply</h4>
-											</a>
-											<h3>$ 64.5000</h3>
-										</div>
-									</div>
-									<div class="item-meta">
-										<ul>
-											<li class="item-date"><i class="fa fa-clock-o"></i>
-												Today 02.05 AM</li>
-											<li class="item-cat"><i class="fa fa-home"></i> <a
-												href="categories2.html">Real Estate</a> , <a
-												href="categories2.html">For Rent</a></li>
-											<li class="item-location"><a href="categories2.html"><i
-													class="fa fa-map-marker"></i> Frederick </a></li>
-											<li class="item-type"><i class="fa fa-bookmark"></i> New</li>
-										</ul>
-									</div>
+
+							<div class="card">
+								<div class="bg-image hover-overlay ripple"
+									data-mdb-ripple-color="light">
+									<img
+										src="https://mdbootstrap.com/img/Photos/Horizontal/Food/8-col/img (5).jpg"
+										class="img-fluid" /> <a href="#!"> </a>
 								</div>
-							</div>
-							<div class="item">
-								<div class="item-ads-grid icon-brown">
-									<div class="item-badge-grid premium-ads">
-										<a href="#">HOT</a>
-									</div>
-									<div class="item-img-grid">
-										<img alt="" src="images/categories/cars/1.png"
-											class="img-responsive img-center">
-										<div class="item-title">
-											<a href="single.html">
-												<h4>It is a long established</h4>
-											</a>
-											<h3>$ 64.5000</h3>
-										</div>
-									</div>
-									<div class="item-meta">
-										<ul>
-											<li class="item-date"><i class="fa fa-clock-o"></i>
-												Today 03.15 AM</li>
-											<li class="item-cat"><i class="fa fa-car"></i> <a
-												href="categories2.html">Cars</a> , <a
-												href="categories2.html">Car Parts</a></li>
-											<li class="item-location"><a href="categories2.html"><i
-													class="fa fa-map-marker"></i> Augusta </a></li>
-											<li class="item-type"><i class="fa fa-bookmark"></i> New</li>
-										</ul>
-									</div>
+								<div class="card-body">
+									<h5 class="card-title font-weight-bold">
+										<a>La Sirena restaurant</a>
+									</h5>
+									<ul class="list-unstyled list-inline mb-0">
+										<li class="list-inline-item me-0"><i
+											class="fas fa-star text-warning fa-xs"> </i></li>
+										<li class="list-inline-item me-0"><i
+											class="fas fa-star text-warning fa-xs"></i></li>
+										<li class="list-inline-item me-0"><i
+											class="fas fa-star text-warning fa-xs"></i></li>
+										<li class="list-inline-item me-0"><i
+											class="fas fa-star text-warning fa-xs"></i></li>
+										<li class="list-inline-item"><i
+											class="fas fa-star-half-alt text-warning fa-xs"></i></li>
+										<li class="list-inline-item">
+											<p class="text-muted">4.5 (413)</p>
+										</li>
+									</ul>
+									<p class="mb-2">$ • American, Restaurant</p>
+									<p class="card-text">Some quick example text to build on
+										the card title and make up the bulk of the card's content.</p>
+									<hr class="my-4" />
+									<p class="lead">
+										<strong>Tonight's availability</strong>
+									</p>
+									<ul
+										class="list-unstyled list-inline d-flex justify-content-between">
+										<li class="list-inline-item me-0">
+											<div class="chip me-0">5:30PM</div>
+										</li>
+										<li class="list-inline-item me-0">
+											<div class="chip bg-secondary text-white me-0">7:30PM</div>
+										</li>
+										<li class="list-inline-item me-0">
+											<div class="chip me-0">8:00PM</div>
+										</li>
+										<li class="list-inline-item me-0">
+											<div class="chip me-0">9:00PM</div>
+										</li>
+									</ul>
+									<a href="#!" class="btn btn-link link-secondary p-md-1 mb-0">Button</a>
 								</div>
 							</div>
 						</div>
@@ -515,12 +523,6 @@
 			</div>
 		</div>
 	</section>
-
-
-
-
-
-
 
 
 

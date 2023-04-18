@@ -9,7 +9,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <jsp:include page="links.jsp"></jsp:include>
-<title>Shopkeeper Admin</title>
+<title>Admin</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -18,9 +18,7 @@
 			<jsp:include page="nav.jsp"></jsp:include>
 			<main class="content">
 				<div class="container-fluid p-0">
-				
-				<h1>Welcome To Online Advertisement Management System</h1>
-				
+					<h1>Welcome To Online Advertisement Management System</h1>
 				</div>
 			</main>
 		</div>
