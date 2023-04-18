@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	    <%@page import="com.admanagement.helper.ConnectionProvider" %>
+	<%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,71 +41,91 @@
 				<div class="col-md-6 col-sm-offset-3">
 					<div class="login-panel widget margin-bottom-none">
 						<div class="login-body">
-							<form>
+							<form action="shopRegDB.jsp" method="post">
 								<div class="form-group">
-									<label class="control-label">Ad Title <span
-										class="required">*</span></label> <input type="text"
-										placeholder="e.g. Apple iPhone SE 2020" required="required"
-										value="" class="form-control border-form">
+									<label class="control-label">Shop Registration No. </label> <input type="number"
+										placeholder="Enter registration number" required="required"
+										id="shopRegNo" name="shopRegNo" class="form-control border-form">
 								</div>
 								<div class="form-group">
-									<label class="control-label">Category <span
-										class="required">*</span></label> <select
-										class="form-control custom-select border-form">
-										<option selected="">All Category</option>
-										<option>Hand Phone</option>
-										<option>Motorcycle</option>
-										<option>Properti</option>
-									</select>
+									<label class="control-label">Shop Name</label> 
+									<input type="text" id="shopName" name="shopName" placeholder="Enter Shop Name" class="form-control border-form" required="required" >
 								</div>
 
 								<div class="form-group">
-									<label class="control-label">Price <span
-										class="required">*</span></label>
+									<label class="control-label">Shop Address</label>
 									<div class="input-group">
-										<span class="input-group-addon"><i class="fa fa-dollar"></i></span>
-										<input type="text" placeholder="e.g. 999" required="required"
-											value="" class="form-control border-form">
-									</div>
-								</div>
-								<div class="form-group">
-									<label class="control-label">Location <span
-										class="required">*</span></label> <select
-										class="form-control custom-select border-form">
-										<option selected="">All Location</option>
-										<option>New York</option>
-										<option>Washington</option>
-										<option>California</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<label class="control-label">Ad Description <span
-										class="required">*</span></label>
 									<textarea
-										placeholder="Include the brand, model, age and any included accessories."
-										class="form-control border-form"></textarea>
-								</div>
-								<div class="form-group">
-									<label class="control-label">Your Name <span
-										class="required">*</span></label> <input type="text"
-										placeholder="e.g. Jhone Doe" required="required" value=""
-										class="form-control border-form">
-								</div>
-								<div class="form-group">
-									<label class="control-label">Your email <span
-										class="required">*</span></label> <input type="text"
-										placeholder="e.g. jon@gmail.com" required="required" value=""
-										class="form-control border-form">
-								</div>
-								<div class="form-group">
-									<label class="control-label">Phone number <span
-										class="required">*</span></label>
-									<div class="input-group">
-										<span class="input-group-addon">+44</span> <input type="text"
-											placeholder="e.g. 123456789" required="required" value=""
-											class="form-control border-form">
+										placeholder="Enter Shop Address"
+										class="form-control border-form" id="shopAddress" name="shopAddress" required></textarea>
 									</div>
 								</div>
+								<div class="form-group">
+									<label class="control-label">Email</label> 
+									<input type="email" id="shopEmail" name="shopEmail" placeholder="Enter Email" class="form-control border-form" required>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Location</label>
+									<textarea
+										placeholder="Enter shop location"
+										class="form-control border-form" id="shopLocation" name="shopLocation" required></textarea>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Shopkeeper First Name</label> <input type="text"
+										placeholder="Enter First Name" required="required" id="shopkeeperFirstName" name="shopkeeperFirstName"
+										class="form-control border-form">
+								</div>
+								<div class="form-group">
+									<label class="control-label">Shopkeeper Middle Name</label><input type="text"
+										placeholder="Enter Middle Name" id="shopkeeperMiddletName" name="shopkeeperMiddletName" required="required"
+										class="form-control border-form">
+								</div>
+								<div class="form-group">
+									<label class="control-label">Shopkeeper Last Name</label>
+									<input type="text"
+											placeholder="Enter Last Name" required="required" id="shopkeeperLastName" name="shopkeeperLastName"
+											class="form-control border-form">
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label">Shopkeeper Mobile Number</label>
+									<input type="number"
+											placeholder="Enter number" required="required" id="shopkeeperMOB" name="shopkeeperMOB"
+											class="form-control border-form">
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label">Shopkeeper Email</label>
+									<input type="email"
+											placeholder="Enter Email" required="required" id="shopkeeperEmail" name="shopkeeperEmail"
+											class="form-control border-form">
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label">Password</label>
+									<input type="password"
+											placeholder="Enter password" required="required" id="shopkeeperpassword" name="shopkeeperpassword"
+											class="form-control border-form">
+								</div>
+								
+								<div class="form-group">
+									<label class="control-label">Shop Category</label>
+									<select class="form-control border-form" id="category" name="category" required="required">
+						<option value="">---Select Category---</option>
+						 <%
+						 
+						 Connection con =  ConnectionProvider.getConnection();
+					      String sql = "select * from add_categories";
+					      PreparedStatement ps = con.prepareStatement(sql);
+					      ResultSet rs = ps.executeQuery();
+					      
+					      while(rs.next()){
+					        %>
+							      <option value="<%=rs.getString("categoryId") %>"><%=rs.getString("category") %></option>
+							      <%} %>
+						</select>
+								</div>
+								
 								<div class="form-group text-right margin-bottom-none mt-3">
 									<button type="submit" class="btn btn-danger">
 										<i class="fa fa-close"></i> Cancel
@@ -116,8 +138,8 @@
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</div></div>
+
 	</section>
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
