@@ -24,11 +24,19 @@
 								<div class="card-header"></div>
 								<div class="card-body">
 									<form action="newcategoryDB.jsp" method="post"
-										class="needs-validation" novalidate>
+										enctype="multipart/form-data" class="needs-validation"
+										novalidate>
 										<div class="mb-3">
 											<label for="title" class="form-label">Category Name</label> <input
-												type="text" class="form-control " id="newadcategory"
+												type="text" class="form-control" id="newadcategory"
 												name="newadcategory" required>
+											<div class="invalid-feedback">Please provide a
+												category.</div>
+										</div>
+										<div class="mb-3">
+											<label for="title" class="form-label">Category Image</label>
+											<input type="file" class="form-control " id="categoryimage"
+												name="categoryimage" required>
 											<div class="invalid-feedback">Please provide a
 												category.</div>
 										</div>
