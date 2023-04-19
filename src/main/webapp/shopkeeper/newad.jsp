@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+<%@page import="com.admanagement.helper.ConnectionProvider"%>
+<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,16 +32,27 @@
 										<div class="mb-3">
 											<label for="title" class="form-label">Ad Title</label> <input
 												type="text" class="form-control " id="adtitle"
-												name="adtitle" placeholder="eg.Apple Iphone 11" required>
+												name="adtitle"  required>
 											<div class="invalid-feedback">Please provide a title
 												for your ad.</div>
 										</div>
 										<div class="mb-3">
 											<label for="category">Category</label> <select
 												class="form-control form-select" id="category"
-												name="adcategory" >
+												name="adcategory">
 												<option value="">Select a category</option>
+												<%
+												Connection con = ConnectionProvider.getConnection();
+												String sql = "select * from add_categories";
+												PreparedStatement ps = con.prepareStatement(sql);
+												ResultSet rs = ps.executeQuery();
 
+												while (rs.next()) {
+												%>
+												<option value="<%=rs.getString("categoryId")%>"><%=rs.getString("category")%></option>
+												<%
+												}
+												%>
 											</select>
 											<div class="invalid-feedback">Please select a category
 												for your ad.</div>

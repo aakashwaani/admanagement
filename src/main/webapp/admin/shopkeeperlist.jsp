@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*"%>
+<%@page import="com.admanagement.helper.ConnectionProvider"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,12 @@
 <title>Admin</title>
 </head>
 <body>
+
+
+	<%
+	Connection con1 = ConnectionProvider.getConnection();
+	Statement stmt1 = con1.createStatement();
+	%>
 	<div class="wrapper">
 		<jsp:include page="sidebar.jsp"></jsp:include>
 		<div class="main">
@@ -36,75 +45,43 @@
 													<circle cx="19" cy="12" r="1"></circle>
 													<circle cx="5" cy="12" r="1"></circle></svg>
 											</a>
-
-											
 										</div>
 									</div>
-									<h5 class="card-title mb-0">Clients</h5>
+									<h5 class="card-title mb-0">Shopers List</h5>
 								</div>
 								<div class="card-body">
 									<table class="table table-bordered" style="width: 100%">
 										<thead class="text-center">
 											<tr>
-												<th>Name</th>
+												<th>Shop Name</th>
 												<th>Email</th>
 												<th>Status</th>
 											</tr>
 										</thead>
 										<tbody class="text-center">
+											<%
+										try {
+											int cnt = 1;
+											Connection con = ConnectionProvider.getConnection();
+											Statement stmt = con1.createStatement();
+											ResultSet rs = stmt1.executeQuery("select * from shopkeeper");
+											while (rs.next()) {
+										%>
 											
 											<tr>
-												<td>Ashton Cox</td>
+												<td><%=rs.getString("shopName") %></td>
 												<td>ashton@cox.com</td>
 												<td><span class="badge bg-success">Active</span></td>
 											</tr>
-											<tr>
+											
+										<%
+										cnt++;
+										}
 
-												<td>Sonya Frost</td>
-												<td>sonya@frost.com</td>
-												<td><span class="badge bg-danger">Deleted</span></td>
-											</tr>
-											<tr>
-
-												<td>Jena Gaines</td>
-												<td>jena@gaines.com</td>
-												<td><span class="badge bg-warning">Inactive</span></td>
-											</tr>
-											<tr>
-
-												<td>Charde Marshall</td>
-												<td>charde@marshall.com</td>
-												<td><span class="badge bg-success">Active</span></td>
-											</tr>
-											<tr>
-
-												<td>Haley Kennedy</td>
-												<td>haley@kennedy.com</td>
-												<td><span class="badge bg-danger">Deleted</span></td>
-											</tr>
-											<tr>
-
-												<td>Tatyana Fitzpatrick</td>
-												<td>tatyana@fitzpatrick.com</td>
-												<td><span class="badge bg-success">Active</span></td>
-											</tr>
-											<tr>
-												<td>Michael Silva</td>
-												<td>michael@silva.com</td>
-												<td><span class="badge bg-success">Active</span></td>
-											</tr>
-											<tr>
-												<td>Angelica Ramos</td>
-												<td>angelica@ramos.com</td>
-												<td><span class="badge bg-success">Active</span></td>
-											</tr>
-											<tr>
-												
-												<td>Jennifer Chang</td>
-												<td>jennifer@chang.com</td>
-												<td><span class="badge bg-warning">Inactive</span></td>
-											</tr>
-										
+										} catch (Exception e) {
+										e.printStackTrace();
+										}
+										%>
 											
 										</tbody>
 									</table>

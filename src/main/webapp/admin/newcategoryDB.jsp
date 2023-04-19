@@ -38,7 +38,7 @@ try {
 } 
 %>
 
-<!-- <script type="text/javascript">
+ <script type="text/javascript">
 	alert("Category Added Successfully.");
 	location.href = "newcategory.jsp";
-</script> -->
+</script> 

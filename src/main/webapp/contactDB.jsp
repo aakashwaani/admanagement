@@ -29,13 +29,7 @@ try {
 	}
 } catch (SQLException ex) {
 	ex.printStackTrace();
-} finally {
-	if (stmt != null) {
-		stmt.close();
-	}
-	if (conn != null) {
-		conn.close();
-	}
+
 }
 %>
 <script type="text/javascript">

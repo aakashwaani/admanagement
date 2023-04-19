@@ -15,10 +15,6 @@
 					<span class="align-middle">Dashboard</span>
 			</a></li>
 
-			<li class="sidebar-item"><a class="sidebar-link"
-				href="newad.jsp"> <i class="align-middle" data-feather="plus"></i>
-					<span class="align-middle">Create New Add</span>
-			</a></li>
 			
 				<li class="sidebar-item"><a class="sidebar-link"
 				href="newcategory.jsp"> <i class="align-middle" data-feather="file-plus"></i>
