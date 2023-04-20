@@ -32,7 +32,7 @@
 										<div class="mb-3">
 											<label for="title" class="form-label">Ad Title</label> <input
 												type="text" class="form-control " id="adtitle"
-												name="adtitle"  required>
+												name="adtitle" required>
 											<div class="invalid-feedback">Please provide a title
 												for your ad.</div>
 										</div>
@@ -56,18 +56,6 @@
 											</select>
 											<div class="invalid-feedback">Please select a category
 												for your ad.</div>
-										</div>
-										<div class="mb-3">
-											<label for="price">Price</label>
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<span class="input-group-text">$</span>
-												</div>
-												<input type="number" class="form-control" id="price"
-													name="adprice" required>
-												<div class="invalid-feedback">Please provide a price
-													for your ad.</div>
-											</div>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Ad Description</label>
