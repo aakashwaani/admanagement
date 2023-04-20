@@ -9,7 +9,7 @@ public class ConnectionProvider {
 		try {
 
 			if (con == null) {
-				Class.forName("com.mysql.cj.jdbc.Driver");
+				Class.forName("com.mysql.jdbc.Driver");
 				con = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/advertisement_management_db?characterEncoding=utf8", "root", "root");
 				System.out.println(con);

@@ -105,7 +105,7 @@
 
 					</div>
 					<p class="text-center margin-bottom-none">
-						Don't have an account? <a href="signup.jsp"><strong>Signup</strong></a>
+						Don't have an account? <a href="User_Registration.jsp"><strong>Signup</strong></a>
 					</p>
 				</div>
 			</div>

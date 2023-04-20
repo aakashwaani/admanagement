@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
 <%@page import="com.admanagement.helper.ConnectionProvider"%>
 <%@ page import="java.sql.*"%>
 <!DOCTYPE html>
@@ -40,7 +39,7 @@
 											<label for="category">Category</label> <select
 												class="form-control form-select" id="category"
 												name="adcategory">
-												<option value="">Select a category</option>
+												<option value="">---Select a category---</option>
 												<%
 												Connection con = ConnectionProvider.getConnection();
 												String sql = "select * from add_categories";
@@ -74,40 +73,7 @@
 											</div>
 										</div>
 
-										<h4>Posted By Details -</h4>
-										<div class="mb-3">
-											<label for="title" class="form-label">Your Shop Name
-												-</label> <input type="text" class="form-control " id="shopname"
-												name="shopname" required>
-											<div class="invalid-feedback">Please provide a Your
-												Name.</div>
-										</div>
-										<div class="mb-3">
-											<label for="title" class="form-label"> Shop Address -</label>
-											<input type="text" class="form-control " id="shopaddress"
-												name="shopaddress" required>
-											<div class="invalid-feedback">Please provide a Your
-												Name.</div>
-										</div>
-										<div class="mb-3">
-											<label for="title" class="form-label">Email -</label> <input
-												type="email" class="form-control" id="shoperemail"
-												name="shoperemail" required>
-											<div class="invalid-feedback">Please provide a Your
-												Email.</div>
-										</div>
-										<div class="mb-3">
-											<label for="title" class="form-label">Phone -</label>
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<span class="input-group-text">+91</span>
-												</div>
-												<input type="number" class="form-control" id="shoperphone"
-													name="shoperphone" required>
-												<div class="invalid-feedback">Please provide a phone
-													number.</div>
-											</div>
-										</div>
+										
 										<div class="text-end">
 											<button type="submit" class="btn btn-success">Post
 												Your Ad</button>
