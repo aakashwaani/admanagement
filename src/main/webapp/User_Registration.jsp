@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@page import="com.admanagement.helper.ConnectionProvider"%>
-    <%@page import="java.sql.*"%>
-    
+	pageEncoding="UTF-8"%>
+<%@page import="com.admanagement.helper.ConnectionProvider"%>
+<%@page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +10,13 @@
 <title>Insert title here</title>
 <jsp:include page="links.jsp"></jsp:include>
 
+<style type="text/css">
+</style>
 </head>
 <body>
-<jsp:include page="header.jsp"></jsp:include>
+	<jsp:include page="header.jsp"></jsp:include>
 
-
- 
- 
+	
   <section class="Registration">
         <div class="container">
         <div class="row d-flex justify-content-center">
@@ -86,29 +86,27 @@
 							      <option value="<%=rs.getString("roleId") %>"><%=rs.getString("userRole") %></option>
 							      <%} %>
 						</select>
-						</div>
-						
-						
-						 <div class="form-group">
-                                         <label for="file">Image</label> <input type="file" name="image"
-								id="image" placeholder="Choose File" class="form-control"
-								required>                     
-                             </div>
-                            
-                            
-                            <div class="text-right">
-                                <input type="submit" class="btn btn-primary" value="Register">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-   </div>
-   </div>
-   </section>
-   
- 
- 
- <jsp:include page="footer.jsp"></jsp:include>                       
-                        
+				
+							<div class="form-group">
+								<label for="file">Image</label> <input type="file" name="image"
+									id="image" placeholder="Choose File" class="form-control"
+									required>
+							</div>
+
+
+							<div class="text-right">
+								<input type="submit" class="btn btn-primary" value="Register">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+	<jsp:include page="footer.jsp"></jsp:include>
+
 </body>
 </html>
