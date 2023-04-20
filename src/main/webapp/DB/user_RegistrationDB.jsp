@@ -7,7 +7,7 @@
 
 <%
 
-String s="/Users/snehajature/eclipse-workspace/admanagement/src/main/webapp/assets/images";
+String s="C:/Users/Akash/eclipse-workspace/Online_Advertisement_System/src/main/webapp/assets/images/userimages";
 MultipartRequest m = new MultipartRequest(request,s,1024*1024*1024);
 
 String fname = m.getParameter("fname");
