@@ -9,9 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <jsp:include page="links.jsp"></jsp:include>
-<style type="text/css">
 
-</style>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -26,7 +24,7 @@
                 <div class="col-md-6 ">
                     <div class="widget top-space margin-bottom-none">
                         <div class="widget-header">
-                            <h1>Contact Us</h1>
+                            <h1>Register</h1>
                         </div>
                         <form method="POST" action="DB/user_RegistrationDB.jsp" enctype="multipart/form-data" class="needs-validation" novalidate>
                         
