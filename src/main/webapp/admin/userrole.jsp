@@ -18,34 +18,26 @@
 			<jsp:include page="nav.jsp"></jsp:include>
 			<main class="content">
 				<div class="container-fluid p-0">
-				<div class="mb-3">
-				<h1 class="h3 d-inline align-middle">Add New Category</h1>
-				</div>
+					<div class="mb-3">
+						<h1 class="h3 d-inline align-middle">Add New Category</h1>
+					</div>
 					<div class="row">
 						<div class="col-md-6">
 							<div class="card">
 								<div class="card-header"></div>
 								<div class="card-body">
-									<form action="DB/newcategoryDB.jsp" method="post"
-										enctype="multipart/form-data" class="needs-validation"
+									<form action="DB/userroleDB.jsp" method="post"
+									 class="needs-validation"
 										novalidate>
 										<div class="mb-3">
-											<label for="title" class="form-label">Category Name</label> <input
+											<label for="title" class="form-label">User Role</label> <input
 												type="text" class="form-control" id="newadcategory"
-												name="newadcategory" required>
-											<div class="invalid-feedback">Please provide a
-												category.</div>
-										</div>
-										<div class="mb-3">
-											<label for="title" class="form-label">Category Image</label>
-											<input type="file" class="form-control " id="categoryimage"
-												name="categoryimage" required>
+												name="userrole" required>
 											<div class="invalid-feedback">Please provide a
 												category.</div>
 										</div>
 										<div class="text-end">
-											<button type="submit" class="btn btn-danger">Add
-												Category</button>
+											<button type="submit" class="btn btn-danger">Add</button>
 										</div>
 									</form>
 								</div>

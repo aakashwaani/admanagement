@@ -44,15 +44,15 @@
 				<div class="col-md-4 col-sm-offset-4">
 					<div class="login-panel widget">
 						<div class="login-body">
-							<form>
+							<form action="logincheck.jsp" method="post">
 								<div class="form-group">
 									<label class="control-label">Email <span
 										class="required">*</span></label> <input type="text"
-										placeholder="Email or Username" class="form-control">
+										placeholder="Email" name="userEmail" class="form-control">
 								</div>
 								<div class="form-group">
 									<label class="control-label">Password <span
-										class="required">*</span></label> <input type="password"
+										class="required">*</span></label> <input type="password" name="userpassword"
 										placeholder="Password" class="form-control">
 								</div>
 								<div class="form-group">
