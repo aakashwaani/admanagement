@@ -26,7 +26,7 @@
 							<div class="card">
 								<div class="card-header"></div>
 								<div class="card-body">
-									<form action="DB/newcategoryDB.jsp" method="post"
+									<form action="newcategoryDB.jsp" method="post"
 										enctype="multipart/form-data" class="needs-validation"
 										novalidate>
 										<div class="mb-3">
