@@ -75,9 +75,26 @@
 										type="email" name="shopLocation" class="form-control">
 								</div>
 								<div class="form-group">
-
 									<input type="hidden" name="shopOwnerName" class="form-control"
 										value="<%=logedInUserId%>">
+								</div>
+								<div class="form-group">
+									<label>User Role</label> <select class="form-control"
+										id="roleName" name="roleName">
+										<option value="">---Select Role---</option>
+										<%
+										Connection con = ConnectionProvider.getConnection();
+										String sql = "select * from user_role";
+										PreparedStatement ps = con.prepareStatement(sql);
+										ResultSet rs = ps.executeQuery();
+
+										while (rs.next()) {
+										%>
+										<option value="<%=rs.getString("roleId")%>"><%=rs.getString("userRole")%></option>
+										<%
+										}
+										%>
+									</select>
 								</div>
 								<div class="form-group">
 									<button class="btn btn-block btn-primary">Register
