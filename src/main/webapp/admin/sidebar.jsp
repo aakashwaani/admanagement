@@ -31,6 +31,11 @@
 					data-feather="message-circle"></i> <span class="align-middle">Manage
 						Users</span>
 			</a></li>
+			<li class="sidebar-item"><a class="sidebar-link"
+				href="userrole.jsp"> <i class="align-middle"
+					data-feather="user"></i> <span class="align-middle">
+						User Role</span>
+			</a></li>
 
 			<li class="sidebar-item"><a class="sidebar-link"
 				href="login.jsp"> <i class="align-middle" data-feather="log-out"></i>

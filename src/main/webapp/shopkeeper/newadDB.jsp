@@ -8,7 +8,6 @@
 
 
 <%
-
 int done = 0;
 Connection conn = null;
 PreparedStatement stmt = null;
@@ -16,17 +15,18 @@ PreparedStatement stmt = null;
 try {
 
 	MultipartRequest m = new MultipartRequest(request,
-	"/Users/snehajature/eclipse-workspace/admanagement/src/main/webapp/shopkeeper/assets/img", 1048 * 1048 * 1048);
+	"C:/Users/Akash/eclipse-workspace/Online_Advertisement_System/src/main/webapp/shopkeeper/assets/img",
+	1048 * 1048 * 1048);
 
 	conn = ConnectionProvider.getConnection();
 	String query = "INSERT INTO ads (adTitle , adCategory, adDetails, adImage) VALUES (?, ?, ?, ?)";
 	stmt = conn.prepareStatement(query);
-	
+
 	String adtitle = m.getParameter("adtitle");
 	String adcategory = m.getParameter("adcategory");
 	String addetails = m.getParameter("addetails");
 	String adimage = "/img/" + m.getFilesystemName("adimage");
-	
+
 	stmt.setString(1, adtitle);
 	stmt.setString(2, adcategory);
 	stmt.setString(3, addetails);
@@ -37,8 +37,7 @@ try {
 	}
 } catch (SQLException ex) {
 	ex.printStackTrace();
-} 
-
+}
 %>
 <script type="text/javascript">
 	alert("Data Added Successfully.");
