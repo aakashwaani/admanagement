@@ -18,7 +18,7 @@
 </head>
 <body>
 
-<jsp:include page="header.jsp"></jsp:include>             
+	<jsp:include page="header.jsp"></jsp:include>
 
 
 	<div id="page-wrapper">
@@ -39,8 +39,8 @@
 					<div class="row" style="margin: 3%;">
 
 						<div class="col-md-6">
-							<img src="../shopkeeper/assets<%=rs.getString("adImage ")%>" height="500"
-								width="500">
+							<img src="../shopkeeper/assets<%=rs.getString("adImage ")%>"
+								height="500" width="500">
 						</div>
 
 						<div class="col-md-6">
@@ -51,7 +51,9 @@
 							</div>
 						</div>
 					</div>
-					<%}%>
+					<%
+					}
+					%>
 
 				</div>
 			</div>
@@ -59,7 +61,7 @@
 	</div>
 
 
-<%-- <jsp:include page="footer.jsp"></jsp:include>             
+	<%-- <jsp:include page="footer.jsp"></jsp:include>             
  --%>
 </body>
 </html>
