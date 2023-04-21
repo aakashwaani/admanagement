@@ -25,13 +25,23 @@
 							<div class="card">
 								<div class="card-header"></div>
 								<div class="card-body">
-									<form action="newadDB.jsp" method="post"
-										class=" needs-validation" enctype="multipart/form-data"
+									<form action="updateadDB.jsp" method="post"
+										class="needs-validation" enctype="multipart/form-data"
 										novalidate>
+										<%
+										try {
+											int cnt = 1;
+											Connection con = ConnectionProvider.getConnection();
+											String sql = ("select ads.adId , ads.adTitle , ads.adDetails  , ads.adImage , add_categories.category, add_categories.categoryImage from ads inner join add_categories on ads.adCategory = add_categories.categoryId where adId = ?");
+											PreparedStatement ps = con.prepareStatement(sql);
+											ps.setString(1, request.getParameter("id"));
+											ResultSet rs = ps.executeQuery();
+											while (rs.next()) {
+										%>
 										<div class="mb-3">
 											<label for="title" class="form-label">Ad Title</label> <input
 												type="text" class="form-control " id="adtitle"
-												name="adtitle" required>
+												name="adtitle" value="<%=rs.getString("adTitle")%>" required>
 											<div class="invalid-feedback">Please provide a title
 												for your ad.</div>
 										</div>
@@ -39,19 +49,7 @@
 											<label for="category">Category</label> <select
 												class="form-control form-select" id="category"
 												name="adcategory">
-												<option value="">---Select a category---</option>
-												<%
-												Connection con = ConnectionProvider.getConnection();
-												String sql = "select * from add_categories";
-												PreparedStatement ps = con.prepareStatement(sql);
-												ResultSet rs = ps.executeQuery();
-
-												while (rs.next()) {
-												%>
-												<option value="<%=rs.getString("categoryId")%>"><%=rs.getString("category")%></option>
-												<%
-												}
-												%>
+												<option value="<%=rs.getString("category")%>"><%=rs.getString("category")%></option>
 											</select>
 											<div class="invalid-feedback">Please select a category
 												for your ad.</div>
@@ -59,24 +57,36 @@
 										<div class="mb-3">
 											<label class="form-label">Ad Description</label>
 											<textarea class="form-control" placeholder="Ad Details.. "
-												rows="3" name="addetails" required></textarea>
+												rows="3" name="addetails" required><%=rs.getString("adDetails")%></textarea>
 										</div>
 
 										<div class="mb-3">
 											<label for="image">Image</label>
 											<div class="custom-file">
-												<input type="file" class="custom-file-input form-label"
-													id="adimage" name="adimage" required> <label
-													class="custom-file-label" for="image"></label>
-												<div class="invalid-feedback">Please choose an image
-													for your ad.</div>
+												<img src="assets/<%=rs.getString("adImage")%>" height="100"
+													width="100"><br> <br> <input type="file"
+													class="custom-file-input form-label" id="image"
+													name="image"> <label class="custom-file-label"
+													for="image"></label>
+
 											</div>
 										</div>
 
 
 										<div class="text-end">
-											<button type="submit" class="btn btn-success">Update Ad</button>
+											<button type="submit" class="btn btn-success">Update
+												Ad</button>
 										</div>
+
+										<%
+										cnt++;
+										}
+
+										} catch (Exception e) {
+										e.printStackTrace();
+										}
+										%>
+
 									</form>
 								</div>
 							</div>
