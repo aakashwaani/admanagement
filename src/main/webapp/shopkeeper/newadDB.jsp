@@ -40,6 +40,6 @@ try {
 }
 %>
 <script type="text/javascript">
-	alert("Data Added Successfully.");
+	alert("New Add Created Successfully.");
 	location.href = "newad.jsp";
 </script>
