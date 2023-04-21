@@ -15,10 +15,11 @@
 					<span class="align-middle">Dashboard</span>
 			</a></li>
 
-			
-				<li class="sidebar-item"><a class="sidebar-link"
-				href="newcategory.jsp"> <i class="align-middle" data-feather="file-plus"></i>
-					<span class="align-middle">Add New Category</span>
+
+			<li class="sidebar-item"><a class="sidebar-link"
+				href="newcategory.jsp"> <i class="align-middle"
+					data-feather="file-plus"></i> <span class="align-middle">Add
+						New Category</span>
 			</a></li>
 
 			<li class="sidebar-item"><a class="sidebar-link"
