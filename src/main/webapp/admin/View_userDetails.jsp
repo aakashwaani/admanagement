@@ -18,7 +18,7 @@
 <main class="content">
 <div class="container-fluid p-0">
 				<div class="row">
-					<div class="col-md-offset-2 col-md-10 table-responsive">
+					<div class="col-md-offset-2 col-md-12 table-responsive">
 					<br><br>
 					   <table class="table table-bordered">
 					    <tr>
@@ -35,7 +35,9 @@
 					    <tr>
 					    <%
 						Connection con = ConnectionProvider.getConnection();
-					      String sql = "select * from app_user order by userId";
+					      String sql = "select app_user.userId, app_user.userFirstName, app_user.userMiddletName ,app_user.userLastName ,app_user.userMOB,app_user.userEmail,app_user.userpassword,  user_role.userRole , app_user.user_Image, app_user.user_status from app_user INNER JOIN user_role  ON app_user.userRole=user_role.roleId";
+					      
+					     
 					      PreparedStatement ps = con.prepareStatement(sql);
 					      ResultSet rs = ps.executeQuery();
 					      int i = 1;
@@ -47,13 +49,10 @@
 					    <td><%=rs.getString("userEmail") %> </td> 
 						 <td><%=rs.getString("userpassword") %> </td> 
 					    <td><%=rs.getString("userRole") %> </td>
-
-					     <td><img src="../admin/assets/images<%=rs.getString("user_Image")%>" height="100" width="100"> </td>  
-					     					    
+					     <td><img src="assets/<%=rs.getString("user_Image")%>" height="100" width="100"> </td>  
+					 
 					   <td>
-					   
-					   
-					   
+
 					    <%
 					     
 					     String value = rs.getString("user_status");
@@ -61,10 +60,10 @@
 						  <a href="updateUser_statusDB.jsp?userId=<%=rs.getString("userId") %>&&type=<%=rs.getString("user_status") %>" class="btn btn-danger btn-sm"><%=rs.getString("user_status") %></a>
 					   
 					    <%}else{ %>
-					         <a href="updateUser_statusDB.jsp?userId=<%=rs.getString("userId") %>&&type=<%=rs.getString("user_status") %>" class="btn btn-info btn-sm"><%=rs.getString("user_status") %> </a>
+					         <a href="updateUser_statusDB.jsp?userId=<%=rs.getString("userId") %>&&type=<%=rs.getString("user_status") %>" class="btn btn-info btn-sm"><%=rs.getString("user_status") %></a>
 					    <%} %>
 					    </td>
-					     
+					    					     
 					    </tr>
 					    
 					    <%i++;} %>
