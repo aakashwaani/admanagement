@@ -34,7 +34,7 @@
 											Connection con = ConnectionProvider.getConnection();
 											String sql = ("select ads.adId , ads.adTitle , ads.adDetails  , ads.adImage , add_categories.category, add_categories.categoryImage from ads inner join add_categories on ads.adCategory = add_categories.categoryId where adId = ?");
 											PreparedStatement ps = con.prepareStatement(sql);
-											ps.setString(1, request.getParameter("id"));
+											ps.setString(1, request.getParameter("adId"));
 											ResultSet rs = ps.executeQuery();
 											while (rs.next()) {
 										%>
