@@ -44,22 +44,22 @@
 											Connection con = ConnectionProvider.getConnection();
 											Statement stmt = con.createStatement();
 											ResultSet rs = stmt.executeQuery(
-											"select ads.adId , ads.adTitle , ads.adDetails  , ads.adImage , add_categories.category, add_categories.categoryImage from ads inner join add_categories on ads.adCategory = add_categories.categoryId");
+											"select ads.adId , ads.adTitle , ads.adDetails, ads.adImage , add_categories.category, add_categories.categoryImage from ads inner join add_categories on ads.adCategory = add_categories.categoryId");
 											while (rs.next()) {
 												System.out.println(rs.getString("adImage"));
-												%>
+										%>
 										<tr>
 											<td><%=cnt%></td>
-											<td><img src="<%=rs.getString("adImage")%>"
-												width="48" height="48" class="rounded-circle me-2"
-												alt="adImage" /></td>
+											<td><img
+												src="../shopkeeper/<%=rs.getString("adImage")%>" width="48"
+												height="48" class="rounded-circle me-2" alt="adImage" /></td>
 											<td><%=rs.getString("adTitle")%></td>
 											<td><%=rs.getString("category")%></td>
 											<td><%=rs.getString("adDetails")%></td>
 											<td><a
 												href="updatead.jsp?adId=<%=rs.getString("adId")%>"
 												class="btn btn-primary btn-sm">Update </a> <a
-												href="delete_add.jsp?adId=<%=rs.getString("adId")%>"
+												href="DB/delete_add.jsp?adId=<%=rs.getString("adId")%>"
 												class="btn btn-danger btn-sm">Delete </a></td>
 
 										</tr>

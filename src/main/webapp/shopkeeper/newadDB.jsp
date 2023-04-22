@@ -25,7 +25,7 @@ try {
 	String adtitle = m.getParameter("adtitle");
 	String adcategory = m.getParameter("adcategory");
 	String addetails = m.getParameter("addetails");
-	String adimage = "/img/" + m.getFilesystemName("adimage");
+	String adimage = "assets/img/" + m.getFilesystemName("adimage");
 
 	stmt.setString(1, adtitle);
 	stmt.setString(2, adcategory);

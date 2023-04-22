@@ -7,8 +7,9 @@
 
 <%
 
-String s="/Users/snehajature/eclipse-workspace/admanagement/src/main/webapp/assets/images";
-MultipartRequest m = new MultipartRequest(request,"/Users/snehajature/eclipse-workspace/admanagement/src/main/webapp/assets/images",1024*1024*1024);
+//String s="/Users/snehajature/eclipse-workspace/admanagement/src/main/webapp/assets/images";
+String s = "C://Users//Akash//eclipse-workspace//Online_Advertisement_System//src//main//webapp//admin//assets//categoryimage";
+MultipartRequest m = new MultipartRequest(request,s,1024*1024*1024);
 
 String fname = m.getParameter("fname");
 String mname = m.getParameter("mname");

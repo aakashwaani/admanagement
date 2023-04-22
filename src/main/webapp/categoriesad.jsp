@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@page import="com.admanagement.helper.ConnectionProvider"%>
+<%@page import="com.admanagement.helper.ConnectionProvider"%>
 <%@ page import="java.sql.*"%>
-	
+
 <!DOCTYPE html>
 <html>
 
@@ -50,29 +50,29 @@
 						<div class="col-lg-3">
 
 							<div class="card my-4">
-							
-							<%
-										
-											int cnt = 1;
-											Connection con = ConnectionProvider.getConnection();
-										    String sql = "select ads.*, add_categories.* from ads as ads inner join add_categories as add_categories on ads.adCategory = add_categories.categoryId where ads.adId=?";
-											PreparedStatement ps = con.prepareStatement(sql);
-											ps.setString(1, request.getParameter("adId"));
-											ResultSet rs = ps.executeQuery();
-											
-											while (rs.next()) {
-										%>
-										
+
+								<%
+								int cnt = 1;
+								Connection con = ConnectionProvider.getConnection();
+								String sql = "select ads.*, add_categories.* from ads as ads inner join add_categories as add_categories on ads.adCategory = add_categories.categoryId where ads.adId=?";
+								PreparedStatement ps = con.prepareStatement(sql);
+								ps.setString(1, request.getParameter("adId"));
+								ResultSet rs = ps.executeQuery();
+
+								while (rs.next()) {
+								%>
+
 								<h1><%=rs.getString("adTitle")%></h1>
-								<img src="/asssets<%=rs.getString("adImage")%>">
-								<a><%=rs.getString("adDetails")%></a>
+								<img src="<%=rs.getString("adImage")%>"> <a><%=rs.getString("adDetails")%></a>
 								<a><%=rs.getString("adTitle")%></a>
 							</div>
-							
-							
-							
-							<%} %>
-							
+
+
+
+							<%
+							}
+							%>
+
 						</div>
 						<div class="col-lg-3"></div>
 						<div class="col-lg-3"></div>

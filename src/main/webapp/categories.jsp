@@ -125,6 +125,7 @@ b {
 					Statement stmt = con1.createStatement();
 					ResultSet rs = stmt1.executeQuery("select * from add_categories");
 					while (rs.next()) {
+						System.out.println(rs.getString("categoryImage"));
 				%>
 
 				<div class="col-lg-4 col-md-6 my-lg-0 my-3">
@@ -134,7 +135,7 @@ b {
 						<div class="d-flex align-items-center">
 							<div
 								class="rounded-circle mx-3 text-center d-flex align-items-center justify-content-center blue">
-								<img src="../admin/assets/categoryimage<%=rs.getString("categoryImage")%>"
+								<img src="<%=rs.getString("categoryImage")%>"
 									alt="">
 							</div>
 							<div class="d-flex flex-column">
