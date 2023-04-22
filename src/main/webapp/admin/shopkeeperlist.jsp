@@ -60,29 +60,29 @@
 										</thead>
 										<tbody class="text-center">
 											<%
-										try {
-											int cnt = 1;
-											Connection con = ConnectionProvider.getConnection();
-											Statement stmt = con1.createStatement();
-											ResultSet rs = stmt1.executeQuery("select * from shopkeeper");
-											while (rs.next()) {
-										%>
-											
+											try {
+												int cnt = 1;
+												Connection con = ConnectionProvider.getConnection();
+												Statement stmt = con1.createStatement();
+												ResultSet rs = stmt1.executeQuery("select * from shopkeeper");
+												while (rs.next()) {
+											%>
+
 											<tr>
-												<td><%=rs.getString("shopName") %></td>
+												<td><%=rs.getString("shopName")%></td>
 												<td>ashton@cox.com</td>
 												<td><span class="badge bg-success">Active</span></td>
 											</tr>
-											
-										<%
-										cnt++;
-										}
 
-										} catch (Exception e) {
-										e.printStackTrace();
-										}
-										%>
-											
+											<%
+											cnt++;
+											}
+
+											} catch (Exception e) {
+											e.printStackTrace();
+											}
+											%>
+
 										</tbody>
 									</table>
 								</div>

@@ -75,7 +75,8 @@
 
 
 										<div class="text-end">
-											<button type="submit" class="btn btn-success">Update Ad</button>
+											<button type="submit" class="btn btn-success">Create New Ad
+												Ad</button>
 										</div>
 									</form>
 								</div>

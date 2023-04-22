@@ -26,22 +26,20 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="m-sm-4">
-									
-									<form>
+
+									<form action="logincheck.jsp" method="POST">
 										<div class="mb-3">
 											<label class="form-label">Email</label> <input
 												class="form-control form-control-lg" type="email"
-												name="email" placeholder="Enter your email"
-												fdprocessedid="9vyrs">
+												name="email" placeholder="Enter your email">
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Password</label> <input
 												class="form-control form-control-lg" type="password"
-												name="password" placeholder="Enter your password"
-												fdprocessedid="ucldur"> 
+												name="password" placeholder="Enter your password">
 										</div>
 										<div class="text-center mt-3">
-											<a href="index.html" class="btn btn-lg btn-primary">Sign
+											<a href="index.jsp" class="btn btn-lg btn-primary">Sign
 												in</a>
 											<!-- <button type="submit" class="btn btn-lg btn-primary">Sign in</button> -->
 										</div>

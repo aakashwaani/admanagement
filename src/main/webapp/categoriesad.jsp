@@ -51,7 +51,7 @@
 									data-mdb-ripple-color="light">
 									<a href="singlead.jsp"><img
 										src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/db78d972182051.5bdf1de4dcf77.jpg//"
-										class="img-fluid" />  </a>
+										class="img-fluid" /> </a>
 								</div>
 								<div class="card-body">
 									<h5 class="card-title font-weight-bold">

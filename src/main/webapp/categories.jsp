@@ -138,7 +138,7 @@ b {
 									alt="">
 							</div>
 							<div class="d-flex flex-column">
-								<a href="singlead.jsp?category<%=rs.getInt("categoryId")%>"><b><%=rs.getString("category")%></b>
+								<a href="categoriesad.jsp.jsp?category<%=rs.getInt("categoryId")%>"><b><%=rs.getString("category")%></b>
 								</a>
 							</div>
 						</div>
