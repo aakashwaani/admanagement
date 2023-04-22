@@ -1,30 +1,45 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
 
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
 <%@page import="java.sql.*"%>
 <%@page import="com.admanagement.helper.ConnectionProvider"%>
 
 
 
 <%
-String adtitle = request.getParameter("adtitle");
-String s2 = request.getParameter("className");
-String s3 = request.getParameter("status");
-
 int done = 0;
-try {
-	
-	Connection con = ConnectionProvider.getConnection();
-	String query = "insert into (className,sectionId,status) values(?,?,?)";
-	PreparedStatement pstm = con.prepareStatement(query);
-	pstm.setString(1, s2);
-	pstm.setString(2, s1);
-	pstm.setString(3, s3);
-	done = pstm.executeUpdate();
-	out.print(done);
-	System.out.println(done);
+Connection conn = null;
+PreparedStatement stmt = null;
 
-} catch (Exception e) {
-	e.printStackTrace();
+try {
+
+	MultipartRequest m = new MultipartRequest(request,
+	"C:/Users/Akash/eclipse-workspace/Online_Advertisement_System/src/main/webapp/shopkeeper/assets/img",
+	1048 * 1048 * 1048);
+
+	conn = ConnectionProvider.getConnection();
+	String query = "INSERT INTO ads (adTitle , adCategory, adDetails, adImage) VALUES (?, ?, ?, ?)";
+	stmt = conn.prepareStatement(query);
+
+	String adtitle = m.getParameter("adtitle");
+	String adcategory = m.getParameter("adcategory");
+	String addetails = m.getParameter("addetails");
+	String adimage = "assets/img/" + m.getFilesystemName("adimage");
+
+	stmt.setString(1, adtitle);
+	stmt.setString(2, adcategory);
+	stmt.setString(3, addetails);
+	stmt.setString(4, adimage);
+	int rowsInserted = stmt.executeUpdate();
+	if (rowsInserted > 0) {
+		System.out.println("A new ad was inserted successfully!");
+	}
+} catch (SQLException ex) {
+	ex.printStackTrace();
 }
 %>
+<script type="text/javascript">
+	alert("New Add Created Successfully.");
+	location.href = "newad.jsp";
+</script>

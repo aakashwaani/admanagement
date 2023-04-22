@@ -76,7 +76,7 @@
 						<div class="widget blue-widget">
 							<div class="widget-header">
 								<small>98,156 Ads</small>
-								<h1><i class="fa fa-glass shortcut-icon icon-blue"></i> Restaurant</h1>
+								<h1><a href="www.google.com"><i class="fa fa-glass shortcut-icon icon-blue"></i> Restaurant</a></h1>
 							</div>
 							<div class="widget-body">
 								<ul class="trends">

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.admanagement.helper.ConnectionProvider"%>
+<%@page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,76 +20,66 @@
 			<jsp:include page="nav.jsp"></jsp:include>
 			<main class="content">
 				<div class="container-fluid p-0">
-									<div class="col-md-12 table-responsive">
-						<br> <br>
-						<h1 style="text-align: center;">Ads Details</h1>
-						<br> <br> <input type="search" id="myInput"
-							placeholder="Search Any Keyword" class="form-control my-3">
-						<table class="table table-bordered" id="myTable">
-							<tr>
-								<th>Sr No.</th>
-								<th>Title</th>
-								<th>Category</th>
-								<th>Details</th>
-								<th>Price</th>
-								<th>Image</th>
-								<th>Update</th>
-								<th>Delete</th>
-							</tr>
-							<tbody id="myTable">
-								<tr>
-							<%-- 		<%
-									Class.forName("com.mysql.jdbc.Driver");
-									Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/advertisement", "root", "root");
-									String sql = "select * from ads";
-									PreparedStatement ps = con.prepareStatement(sql);
-									ResultSet rs = ps.executeQuery();
-									int i = 1;
-									while (rs.next()) {
-									%>
-									<td><%=i%></td>
-									<td><%=rs.getString("title")%></td>
-									<td><%=rs.getString("category")%></td>
-									<td><%=rs.getString("description")%></td>
-									<td><%=rs.getString("price")%></td>
-									<td><img src="assets/<%=rs.getString("image_path")%>"
-										height="100" width="100"></td>
+					<div class="row">
+						<div class="col-12 col-xl-12">
+							<div class="mb-3 text-center fw-bold">
+								<h3>Ads List</h3>
+							</div>
+							<div class="card p-4">
+								<table class="table table-bordered">
+									<thead>
+										<tr>
+											<th>Serial No</th>
+											<th>Ad Image</th>
+											<th>Ad Title</th>
+											<th>Category</th>
+											<th class="d-none d-md-table-cell" style="width: 40%">Description</th>
+											<th>Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										<%
+										try {
+											int cnt = 1;
+											Connection con = ConnectionProvider.getConnection();
+											Statement stmt = con.createStatement();
+											ResultSet rs = stmt.executeQuery(
+											"select ads.adId , ads.adTitle , ads.adDetails  , ads.adImage , add_categories.category, add_categories.categoryImage from ads inner join add_categories on ads.adCategory = add_categories.categoryId");
+											while (rs.next()) {
+												System.out.println(rs.getString("adImage"));
+												%>
+										<tr>
+											<td><%=cnt%></td>
+											<td><img src="<%=rs.getString("adImage")%>"
+												width="48" height="48" class="rounded-circle me-2"
+												alt="adImage" /></td>
+											<td><%=rs.getString("adTitle")%></td>
+											<td><%=rs.getString("category")%></td>
+											<td><%=rs.getString("adDetails")%></td>
+											<td><a
+												href="updatead.jsp?adId=<%=rs.getString("adId")%>"
+												class="btn btn-primary btn-sm">Update </a> <a
+												href="delete_add.jsp?adId=<%=rs.getString("adId")%>"
+												class="btn btn-danger btn-sm">Delete </a></td>
 
-									<td><a href="update_ad.jsp?id=<%=rs.getString("id")%>">Update
-									</a></td>
-									<td><a href="delete_ad.jsp?id=<%=rs.getString("id")%>"
-										class="btn btn-danger btn-sm">Delete </a></td>
+										</tr>
+										<%
+										cnt++;
+										}
 
-								</tr>
+										} catch (Exception e) {
+										e.printStackTrace();
+										}
+										%>
 
-								<%
-								i++;
-								}
-								%> --%>
-							</tbody>
-						</table>
-
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
-				
-				
 				</div>
 			</main>
 		</div>
 	</div>
-	
-	
-	
-	<script type="text/javascript">
-	
-	$(document).ready(function() {
-	    $("#myInput").on("keyup", function() {
-	        var value = $(this).val().toLowerCase();
-	        $("#myTable tr").filter(function() {
-	            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-	        });
-	    });
-	});
-	
-	</script>
 </body>
 </html>

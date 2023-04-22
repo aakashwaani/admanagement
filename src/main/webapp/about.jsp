@@ -41,14 +41,15 @@
 		<div class="row">
 			<div class="col-md-6 p-4 p-sm-5 order-2 order-sm-1">
 				<small class="text-uppercase text-primary">About us</small>
-				<h1 class="h2 mb-4" style="font-weight: 600;">
-					Your Headline <span class="text-primary">Here</span>
-				</h1>
-				<p class="text-secondary" style="line-height: 2;">Lorem ipsum
-					dolor sit amet consectetur adipisicing elit. Suscipit repellat iure
-					laboriosam cum voluptatum, nam minima deserunt aut? Distinctio
-					voluptatibus dolor quaerat quo omnis illo sequi at velit, odit
-					quod!</p>
+				<p class="text-secondary" style="line-height: 2;">We strive to
+					build strong relationships with our customers and partners by
+					always being honest, transparent, and reliable. Our team is
+					composed of talented professionals from diverse backgrounds who
+					bring unique perspectives and skills to the table. We foster a
+					culture of collaboration, creativity, and continuous learning to
+					ensure that we always stay ahead of the curve. Thank you for
+					choosing us as your partner. We look forward to working with you
+					and helping you achieve your goals.</p>
 
 			</div>
 			<div class="col-md-6 p-0 text-center order-1 order-sm-2">
@@ -65,13 +66,17 @@
 			<div class="col-md-6 p-4 p-sm-5">
 				<small class="text-uppercase text-primary">About us</small>
 				<h1 class="h2 mb-4" style="font-weight: 600;">
-					Your Headline <span class="text-primary">Here!</span>
+					Welcome to our <span class="text-primary">Website</span>
 				</h1>
-				<p class="text-secondary" style="line-height: 2;">Lorem ipsum
-					dolor sit amet consectetur adipisicing elit. Suscipit repellat iure
-					laboriosam cum voluptatum, nam minima deserunt aut? Distinctio
-					voluptatibus dolor quaerat quo omnis illo sequi at velit, odit
-					quod!</p>
+				<p class="text-secondary" style="line-height: 2;">We are a team
+					of passionate individuals dedicated to providing high-quality
+					products and services to our customers. Our mission is to create
+					innovative solutions that exceed our customers' expectations and
+					make a positive impact in the world. At our company, we believe
+					that the key to success lies in our commitment to excellence,
+					integrity, and customer satisfaction. We strive to build strong
+					relationships with our customers and partners by always being
+					honest, transparent, and reliable.</p>
 
 			</div>
 		</div>

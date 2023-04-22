@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.admanagement.helper.ConnectionProvider"%>
+<%@ page import="java.sql.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,37 +25,36 @@
 							<div class="card">
 								<div class="card-header"></div>
 								<div class="card-body">
-									<form action="DB/newadDB.jsp" method="post"
+									<form action="newadDB.jsp" method="post"
 										class=" needs-validation" enctype="multipart/form-data"
 										novalidate>
 										<div class="mb-3">
 											<label for="title" class="form-label">Ad Title</label> <input
-												type="text" class="form-control " id="adtitle" name="adtitle"
-												placeholder="eg.Apple Iphone 11" required>
+												type="text" class="form-control " id="adtitle"
+												name="adtitle" required>
 											<div class="invalid-feedback">Please provide a title
 												for your ad.</div>
 										</div>
 										<div class="mb-3">
 											<label for="category">Category</label> <select
 												class="form-control form-select" id="category"
-												name="adcategory" required>
-												<option value="">Select a category</option>
+												name="adcategory">
+												<option value="">---Select a category---</option>
+												<%
+												Connection con = ConnectionProvider.getConnection();
+												String sql = "select * from add_categories";
+												PreparedStatement ps = con.prepareStatement(sql);
+												ResultSet rs = ps.executeQuery();
 
+												while (rs.next()) {
+												%>
+												<option value="<%=rs.getString("categoryId")%>"><%=rs.getString("category")%></option>
+												<%
+												}
+												%>
 											</select>
 											<div class="invalid-feedback">Please select a category
 												for your ad.</div>
-										</div>
-										<div class="mb-3">
-											<label for="price">Price</label>
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<span class="input-group-text">$</span>
-												</div>
-												<input type="number" class="form-control" id="price"
-													name="adprice" required>
-												<div class="invalid-feedback">Please provide a price
-													for your ad.</div>
-											</div>
 										</div>
 										<div class="mb-3">
 											<label class="form-label">Ad Description</label>
@@ -65,48 +66,18 @@
 											<label for="image">Image</label>
 											<div class="custom-file">
 												<input type="file" class="custom-file-input form-label"
-													id="adimage" name="image" required> <label
+													id="adimage" name="adimage" required> <label
 													class="custom-file-label" for="image"></label>
 												<div class="invalid-feedback">Please choose an image
 													for your ad.</div>
 											</div>
 										</div>
 
-										<h4>Posted By Details -</h4>
-										<div class="mb-3">
-											<label for="title" class="form-label">Your Shop Name -</label> <input
-												type="text" class="form-control " id="shopname" name="shopname"
-												required>
-											<div class="invalid-feedback">Please provide a Your
-												Name.</div>
-										</div>
-										<div class="mb-3">
-											<label for="title" class="form-label"> Shop Address -</label> <input
-												type="text" class="form-control " id="shopaddress" name="shopaddress"
-												required>
-											<div class="invalid-feedback">Please provide a Your
-												Name.</div>
-										</div>
-										<div class="mb-3">
-											<label for="title" class="form-label">Email -</label> <input
-												type="email" class="form-control" id="shoperemail" name="shoperemail"
-												required>
-											<div class="invalid-feedback">Please provide a Your
-											Email.</div>
-										</div>
-										<div class="mb-3">
-											<label for="title" class="form-label">Phone -</label>
-											<div class="input-group">
-												<div class="input-group-prepend">
-													<span class="input-group-text">+91</span>
-												</div>
-												<input type="number" class="form-control" id="shoperphone"
-													name="shoperphone" required>
-												<div class="invalid-feedback">Please provide a phone number.</div>
-											</div>
-										</div>
+
 										<div class="text-end">
-											<button type="submit" class="btn btn-success">Post Your Ad</button>
+											<button type="submit" class="btn btn-success">Create
+												New Ad</button>
+
 										</div>
 									</form>
 								</div>

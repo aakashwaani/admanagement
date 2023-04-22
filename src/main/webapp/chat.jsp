@@ -73,7 +73,7 @@ body {
 }
 
 .people-list .chat-list li .name {
-	font-size: 15px
+	font-size: 13px
 }
 
 .people-list .chat-list img {
@@ -152,7 +152,7 @@ body {
 	color: #444;
 	padding: 18px 20px;
 	line-height: 26px;
-	font-size: 16px;
+	font-size: 14px;
 	border-radius: 7px;
 	display: inline-block;
 	position: relative
@@ -308,7 +308,8 @@ function getId(a){
 	
 	<jsp:include page="header.jsp"></jsp:include>
 
-	<div class="container">
+
+	<div class="container my-5">
 		<div class="row clearfix">
 			<div class="col-lg-12">
 				<div class="card chat-app">
@@ -502,8 +503,7 @@ function getId(a){
 															}
 														})
 											})
-							/* 				    $("#addAcademicYear").addClass('was-validated');
-							 */
+							
 						});
 	</script>
 

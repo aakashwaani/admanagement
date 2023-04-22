@@ -34,10 +34,6 @@
 				href="login.jsp"> <i class="align-middle"
 					data-feather="log-out"></i> <span class="align-middle">Log Out</span>
 			</a></li>
-
-			
 		</ul>
-
-		
 	</div>
 </nav>

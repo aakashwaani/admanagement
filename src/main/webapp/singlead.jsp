@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+<%@page import="com.admanagement.helper.ConnectionProvider"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,68 +30,23 @@
 								<div class="item-ads-grid margin-bottom-none">
 									<div class="item-title-single">
 										<a href="single.html">
-											<h1>Lorem Ipsum is simply dummy text of the printing and
-												typesetting industry</h1>
+											<h1>Bungh Food Festival at Sayaji Hotel</h1>
 										</a>
-										<div class="item-meta">
-											<ul>
-												<li class="item-date"><i class="fa fa-clock-o"></i>
-													Today 10.35 AM</li>
-												<li class="item-cat"><i class="fa fa-glass"></i> <a
-													href="categories2.html">Restaurant</a> , <a
-													href="categories2.html">Cafe</a></li>
-												<li class="item-location"><a href="#"><i
-														class="fa fa-map-marker"></i> Buffalo </a></li>
-												<li class="item-type"><i class="fa fa-bookmark"></i>
-													New</li>
-											</ul>
-										</div>
 									</div>
 									<div class="item-img-grid">
-										<div class="favourite-icon">
-											<a class="fav-btn" title="" data-placement="bottom"
-												data-toggle="tooltip" href="#" data-original-title="Save Ad">115
-												<i class="fa fa-heart"></i>
-											</a>
-										</div>
+
 										<div id="sync1" class="">
 											<div class="item">
-												<img alt="" src="assets/images/single-ads/big/1.jpg"
-													class="img-responsive img-center">
+												<a href=""> <img alt=""
+													style="height: 800px !important;"
+													src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/db78d972182051.5bdf1de4dcf77.jpg//"
+													class="img-responsive img-center"></a>
 											</div>
-											
+
 										</div>
 										<div id="sync2" class="owl-carousel">
 											<div class="item">
 												<img alt="" src="images/single-ads/small/1.jpg"
-													class="img-responsive img-center">
-											</div>
-											<div class="item">
-												<img alt="" src="images/single-ads/small/2.jpg"
-													class="img-responsive img-center">
-											</div>
-											<div class="item">
-												<img alt="" src="images/single-ads/small/3.jpg"
-													class="img-responsive img-center">
-											</div>
-											<div class="item">
-												<img alt="" src="images/single-ads/small/4.jpg"
-													class="img-responsive img-center">
-											</div>
-											<div class="item">
-												<img alt="" src="images/single-ads/small/5.jpg"
-													class="img-responsive img-center">
-											</div>
-											<div class="item">
-												<img alt="" src="images/single-ads/small/6.jpg"
-													class="img-responsive img-center">
-											</div>
-											<div class="item">
-												<img alt="" src="images/single-ads/small/7.jpg"
-													class="img-responsive img-center">
-											</div>
-											<div class="item">
-												<img alt="" src="images/single-ads/small/8.jpg"
 													class="img-responsive img-center">
 											</div>
 										</div>
@@ -187,9 +145,6 @@
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 col-lg-4">
-					<div class="price-widget short-widget">
-						<i class="fa fa-dollar"></i> <strong>235.00</strong>
-					</div>
 					<div class="widget user-widget">
 						<div class="widget-body text-center">
 							<img class="user-dp" alt="User Image" src="images/user.jpg">

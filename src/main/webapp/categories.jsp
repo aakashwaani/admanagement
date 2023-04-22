@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.admanagement.helper.ConnectionProvider"%>
+<%@ page import="java.sql.*"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +11,88 @@
 <title>Insert title here</title>
 <jsp:include page="links.jsp"></jsp:include>
 </head>
+
+
+<style>
+.box {
+	padding: 40px 30px;
+	transition: all .4s ease-in-out;
+	cursor: pointer;
+}
+
+.box:hover {
+	box-shadow: 2px 2px 10px #a5a5a5;
+	transform: scale(1.03);
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	object-fit: contain;
+	width: 35px;
+	height: 35px;
+	/* padding: 20px; */
+}
+
+p.text-muted {
+	margin: 0;
+	font-size: 0.9rem;
+}
+
+b {
+	font-size: 1.12rem;
+}
+
+.rounded-circle {
+	width: 60px;
+	height: 60px;
+	background-color: red;
+}
+
+.blue {
+	background-color: #bedcfa;
+	transform: rotateZ(90deg);
+}
+
+.pale-blue {
+	background-color: #eff8ff;
+}
+
+.pale-orange {
+	background-color: #ffe5b9;
+}
+
+.pale-purple {
+	background-color: #e8e8e8;
+}
+
+.pale-cyan {
+	background-color: #cffffe;
+}
+
+.pale-pink {
+	background-color: #ffe4e4;
+}
+
+.pale-pale {
+	background-color: #f4eeff;
+}
+
+.pale-green {
+	background-color: #a0ffe6;
+}
+
+.pale-pista {
+	background-color: #dbf6e9;
+}
+</style>
 <body>
+	<%
+	Connection con1 = ConnectionProvider.getConnection();
+	Statement stmt1 = con1.createStatement();
+	%>
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<section class="categories-page-search">
@@ -28,50 +112,54 @@
 					</form>
 				</div>
 			</div>
-			<div class="row d-flex justify-content-center">
+		</div>
+	</section>
+	<section class="categories-list main-categories-list">
+		<div class="container bg-light rounded">
+			<div class="h4 font-weight-bold text-center py-3">Explore more</div>
+			<div class="row">
+				<%
+				try {
+					int cnt = 1;
+					Connection con = ConnectionProvider.getConnection();
+					Statement stmt = con1.createStatement();
+					ResultSet rs = stmt1.executeQuery("select * from add_categories");
+					while (rs.next()) {
+						System.out.println(rs.getString("categoryImage"));
+				%>
 
-				<div class="all-categories-nav">
-					<a href="categoriesad.jsp"> <i
-						class="fa fa-glass shortcut-icon icon-blue"></i>
-						<p>
-							Restaurant 
-						</p>
-					</a> <a href="#Real_Estate"> <i
-						class="fa fa-home shortcut-icon icon-green"></i>
-						<p>
-							Real Estate 						</p>
-					</a> <a href="#Cars"> <i class="fa fa-car shortcut-icon icon-brown"></i>
-						<p>
-							Cars 
-						</p>
-					</a> <a href="#Shopping"> <i
-						class="fa fa-shopping-cart shortcut-icon icon-violet"></i>
-						<p>
-							Shopping 
-						</p>
-					</a> <a href="#Job"> <i
-						class="fa fa-briefcase shortcut-icon icon-dark-blue"></i>
-						<p>
-							Job 
-						</p>
-					</a> <a href="#Hotels"> <i
-						class="fa fa-building-o shortcut-icon icon-orange"></i>
-						<p>
-							Hotels 
-						</p>
-					</a> <a href="#Services"> <i
-						class="fa fa-star shortcut-icon icon-light-blue"></i>
-						<p>
-							Services 
-						</p>
-					</a> 
+				<div class="col-lg-4 col-md-6 my-lg-0 my-3">
+
+					<div class="box bg-white">
+
+						<div class="d-flex align-items-center">
+							<div
+								class="rounded-circle mx-3 text-center d-flex align-items-center justify-content-center blue">
+								<img src="<%=rs.getString("categoryImage")%>"
+									alt="">
+							</div>
+							<div class="d-flex flex-column">
+								<a href="categoriesad.jsp?categoryId<%=rs.getInt("categoryId")%>"><b><%=rs.getString("category")%></b>
+								</a>
+							</div>
+						</div>
+					</div>
 				</div>
 
+
+				<%
+				cnt++;
+				}
+
+				} catch (Exception e) {
+				e.printStackTrace();
+				}
+				%>
 			</div>
+
 		</div>
 	</section>
 
-	
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 </html>
