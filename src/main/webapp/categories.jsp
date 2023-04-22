@@ -134,11 +134,11 @@ b {
 						<div class="d-flex align-items-center">
 							<div
 								class="rounded-circle mx-3 text-center d-flex align-items-center justify-content-center blue">
-								<img src="./admin/assets/<%=rs.getString("categoryImage")%>"
+								<img src="../admin/assets/categoryimage<%=rs.getString("categoryImage")%>"
 									alt="">
 							</div>
 							<div class="d-flex flex-column">
-								<a href="categoriesad.jsp.jsp?category<%=rs.getInt("categoryId")%>"><b><%=rs.getString("category")%></b>
+								<a href="categoriesad.jsp?categoryId<%=rs.getInt("categoryId")%>"><b><%=rs.getString("category")%></b>
 								</a>
 							</div>
 						</div>

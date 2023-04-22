@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@page import="com.admanagement.helper.ConnectionProvider"%>
+<%@ page import="java.sql.*"%>
+	
 <!DOCTYPE html>
 <html>
 
@@ -47,22 +50,29 @@
 						<div class="col-lg-3">
 
 							<div class="card my-4">
-								<div class="bg-image hover-overlay ripple"
-									data-mdb-ripple-color="light">
-									<a href="singlead.jsp"><img
-										src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/db78d972182051.5bdf1de4dcf77.jpg//"
-										class="img-fluid" /> </a>
-								</div>
-								<div class="card-body">
-									<h5 class="card-title font-weight-bold">
-										<a>Bungh Food Festival at Sayaji Hotel</a>
-									</h5>
-									<p class="card-text">Bungh Food Festival at Sayaji Hotel.
-										This food festival featured cuisines from 3 states of India
-										i.e. Bihar, West Bengal and Orissa.</p>
-									<hr />
-								</div>
+							
+							<%
+										
+											int cnt = 1;
+											Connection con = ConnectionProvider.getConnection();
+										    String sql = "select ads.*, add_categories.* from ads as ads inner join add_categories as add_categories on ads.adCategory = add_categories.categoryId where ads.adId=?";
+											PreparedStatement ps = con.prepareStatement(sql);
+											ps.setString(1, request.getParameter("adId"));
+											ResultSet rs = ps.executeQuery();
+											
+											while (rs.next()) {
+										%>
+										
+								<h1><%=rs.getString("adTitle")%></h1>
+								<img src="/asssets<%=rs.getString("adImage")%>">
+								<a><%=rs.getString("adDetails")%></a>
+								<a><%=rs.getString("adTitle")%></a>
 							</div>
+							
+							
+							
+							<%} %>
+							
 						</div>
 						<div class="col-lg-3"></div>
 						<div class="col-lg-3"></div>

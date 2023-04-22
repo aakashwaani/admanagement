@@ -17,7 +17,7 @@ try {
 	conn = ConnectionProvider.getConnection();
 	
 	MultipartRequest m = new MultipartRequest(request,
-	"C://Users//Akash//eclipse-workspace//Online_Advertisement_System//src//main//webapp//admin//assets//categoryimage",
+	"/Users/snehajature/eclipse-workspace/admanagement/src/main/webapp/admin/assets/categoryimage",
 	1048 * 1048 * 1048);
 /* 	System.out.println(m.getParameter("newadcategory"));
 	System.out.println(m.getFilesystemName("categoryimage")); */
@@ -41,5 +41,5 @@ try {
 
 <script type="text/javascript">
 	alert("thank you.");
-	location.href = "../newcategory.jsp";
+	location.href = "newcategory.jsp";
 </script>
