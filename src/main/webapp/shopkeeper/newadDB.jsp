@@ -15,7 +15,7 @@ PreparedStatement stmt = null;
 try {
 
 	MultipartRequest m = new MultipartRequest(request,
-	"C:/Users/Akash/eclipse-workspace/Online_Advertisement_System/src/main/webapp/shopkeeper/assets/img",
+	"/Users/snehajature/eclipse-workspace/admanagement/src/main/webapp/shopkeeper/assets/img",
 	1048 * 1048 * 1048);
 
 	conn = ConnectionProvider.getConnection();

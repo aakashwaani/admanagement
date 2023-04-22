@@ -75,8 +75,12 @@
 
 
 										<div class="text-end">
+<<<<<<< HEAD
 											<button type="submit" class="btn btn-success">Create New Ad
 												Ad</button>
+=======
+											<button type="submit" class="btn btn-success">Add Ad</button>
+>>>>>>> 4eba1a0b4e9fc9d0eae92d61bfb5d41754a6e74f
 										</div>
 									</form>
 								</div>

@@ -29,9 +29,9 @@
 
 					<%
 					Connection con = ConnectionProvider.getConnection();
-					String sql = "select * from ads  where adCategory=?";
+					String sql = "select * from ads  where adTitle=?";
 					PreparedStatement ps = con.prepareStatement(sql);
-					ps.setString(1, request.getParameter("adCategory"));
+					ps.setString(1, request.getParameter("adtitle"));
 					ResultSet rs = ps.executeQuery();
 
 					while (rs.next()) {

@@ -87,7 +87,7 @@
 									<option value="">---Select Role---</option>
 									<%
 									Connection con = ConnectionProvider.getConnection();
-									String sql = "select * from user_role";
+									String sql = "SELECT * from user_role";
 									PreparedStatement ps = con.prepareStatement(sql);
 									ResultSet rs = ps.executeQuery();
 
