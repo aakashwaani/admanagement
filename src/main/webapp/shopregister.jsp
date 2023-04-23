@@ -65,6 +65,15 @@
 									<div class="valid-feedback">Looks good!</div>
 									<div class="invalid-feedback">Please Enter Shop Name</div>
 								</div>
+								
+								<div class="form-group">
+									<label class="control-label">Shop Image </label> <input
+										type="file" placeholder="" name="shopImage"
+										class="form-control" required>
+									<div class="valid-feedback">Looks good!</div>
+									<div class="invalid-feedback">Please Enter Shop Image</div>
+								</div>
+								
 								<div class="form-group">
 									<label class="control-label">Shop Address </label> <input
 										type="text" name="shopAddress" class="form-control" required>
