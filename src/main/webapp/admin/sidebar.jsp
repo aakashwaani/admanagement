@@ -28,7 +28,7 @@
 			</a></li>
 
 			<li class="sidebar-item"><a class="sidebar-link"
-				href="shopkeeperlist.jsp"> <i class="align-middle"
+				href="View_userDetails.jsp"> <i class="align-middle"
 					data-feather="message-circle"></i> <span class="align-middle">Manage
 						Users</span>
 			</a></li>

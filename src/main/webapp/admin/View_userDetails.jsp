@@ -18,9 +18,9 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 					<div class="row">
-						<div class="col-md-offset-2 col-md-10 table-responsive">
+						<div class="col-md-offset-2 col-md-12 table-responsive">
 							<br> <br>
-							<table class="table table-bordered">
+							<table class="table table-bordered" id="loadTable">
 								<tr>
 									<th>Sr.No</th>
 									<th>Name</th>
@@ -35,40 +35,44 @@
 								<tr>
 									<%
 									Connection con = ConnectionProvider.getConnection();
-									String sql = "select * from app_user order by userId";
+									String sql = "SELECT u.*, r.* FROM app_user u JOIN user_role r ON u.userRole = r.roleId";
 									PreparedStatement ps = con.prepareStatement(sql);
 									ResultSet rs = ps.executeQuery();
+
 									int i = 1;
 									while (rs.next()) {
 									%>
+
 									<td><%=i%></td>
 									<td><%=rs.getString("userFirstName")%> <%=rs.getString("userMiddletName")%>
 										<%=rs.getString("userLastName")%></td>
 									<td><%=rs.getString("userMOB")%></td>
 									<td><%=rs.getString("userEmail")%></td>
 									<td><%=rs.getString("userpassword")%></td>
-									<td><%=rs.getString("userRole")%></td>
+									<td><%=rs.getString(12)%></td>
 
 									<td><img
-										src="../admin/assets/images<%=rs.getString("user_Image")%>"
+										src="<%=rs.getString("user_Image")%>"
 										height="100" width="100"></td>
 
 									<td>
 										<%
-										String value = rs.getString("appuser_status");
-										if (value != null && value.equals("Deactivated")) {
-										%> <a
-										href="updateUser_statusDB.jsp?userId=<%=rs.getString("userId")%>&&type=<%=rs.getString("appuser_status")%>"
-										class="btn btn-danger btn-sm"><%=rs.getString("user_status")%></a>
+										
+										if ((rs.getString("appuser_status")).equals("Deactivated")) {
+											%>
+											
+											<a
+										href="updateUser_statusDB.jsp?userId=<%=rs.getInt("userId")%>&&status=<%=rs.getString("appuser_status") %>"
+										class="btn btn-danger"><%=rs.getString("appuser_status") %></a>
+										
+										<%} else {%>
+											<a
+										href="updateUser_statusDB.jsp?userId=<%=rs.getInt("userId")%>&&status=<%=rs.getString("appuser_status") %>"
+										class="btn btn-success"><%=rs.getString("appuser_status") %></a>
+										<%}
+										%>  
+									
 
-										<%
-										} else {
-										%> <a
-										href="updateUser_statusDB.jsp?userId=<%=rs.getString("userId")%>&&type=<%=rs.getString("appuser_status")%>"
-										class="btn btn-info btn-sm"><%=rs.getString("appuser_status")%>
-									</a> <%
- }
- %>
 									</td>
 
 								</tr>
@@ -86,7 +90,13 @@
 		</div>
 	</div>
 
+	<script type="text/javascript">
+		function sendData(x) {
+			location.href = "DB/activateUsersDB.jsp?userId=" + x;
+			$("#loadTable").load('View_userDetails.jsp #loadTable');
 
+		}
+	</script>
 
 	<!-- 
 <script type="text/javascript">
