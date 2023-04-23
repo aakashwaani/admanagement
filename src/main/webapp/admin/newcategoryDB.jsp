@@ -15,9 +15,9 @@ PreparedStatement stmt = null;
 
 try {
 	conn = ConnectionProvider.getConnection();
-	
-	MultipartRequest m = new MultipartRequest(request,
-	"/Users/snehajature/eclipse-workspace/admanagement/src/main/webapp/admin/assets/categoryimage",
+	String s = "C://Users//Akash//eclipse-workspace//Online_Advertisement_System//src//main//webapp//admin//assets//categoryimage";
+	//String s = "/Users/snehajature/eclipse-workspace/admanagement/src/main/webapp/admin/assets/categoryimage";
+	MultipartRequest m = new MultipartRequest(request,s,
 	1048 * 1048 * 1048);
 /* 	System.out.println(m.getParameter("newadcategory"));
 	System.out.println(m.getFilesystemName("categoryimage")); */
@@ -25,7 +25,7 @@ try {
 	 String query = "INSERT INTO add_categories(category,categoryImage) VALUES (?,?)";
 	stmt = conn.prepareStatement(query);
 	stmt.setString(1, m.getParameter("newadcategory"));
-	stmt.setString(2, "/categoryimage/" + m.getFilesystemName("categoryimage"));
+	stmt.setString(2, "admin/assets/categoryimage/" + m.getFilesystemName("categoryimage"));
 
 	int rowsInserted = stmt.executeUpdate();
 	if (rowsInserted > 0) {

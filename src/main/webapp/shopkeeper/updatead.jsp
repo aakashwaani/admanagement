@@ -25,24 +25,23 @@
 							<div class="card">
 								<div class="card-header"></div>
 								<div class="card-body">
-									<form  enctype="multipart/form-data" action="updateadDB.jsp" method="post"
-										class="needs-validation" 
-										novalidate>
+									<form enctype="multipart/form-data" action="updateadDB.jsp"
+										method="post" class="needs-validation" novalidate>
 										<%
-										
-											int cnt = 1;
-											Connection con = ConnectionProvider.getConnection();
-										    String sql = "select ads.*, add_categories.* from ads as ads inner join add_categories as add_categories on ads.adCategory = add_categories.categoryId where ads.adId=?";
+										int cnt = 1;
+										Connection con = ConnectionProvider.getConnection();
+										String sql = "select ads.*, add_categories.* from ads as ads inner join add_categories as add_categories on ads.adCategory = add_categories.categoryId where ads.adId=?";
 
-/* 											String sql = ("select ads.adId , ads.adTitle , ads.adDetails  , ads.adImage , add_categories.category, add_categories.categoryImage from ads inner join add_categories on ads.adCategory = add_categories.categoryId where adId = ?");
- */											PreparedStatement ps = con.prepareStatement(sql);
-											ps.setString(1, request.getParameter("adId"));
-											ResultSet rs = ps.executeQuery();
-											while (rs.next()) {
+										/* 											String sql = ("select ads.adId , ads.adTitle , ads.adDetails  , ads.adImage , add_categories.category, add_categories.categoryImage from ads inner join add_categories on ads.adCategory = add_categories.categoryId where adId = ?");
+										 */ PreparedStatement ps = con.prepareStatement(sql);
+										ps.setString(1, request.getParameter("adId"));
+										ResultSet rs = ps.executeQuery();
+										while (rs.next()) {
 										%>
-										
-										<input type="hidden" value="<%=rs.getString("adId")%>" id="adId" name="adId">
-										
+
+										<input type="hidden" value="<%=rs.getString("adId")%>"
+											id="adId" name="adId">
+
 										<div class="mb-3">
 											<label for="title" class="form-label">Ad Title</label> <input
 												type="text" class="form-control " id="adtitle"
@@ -50,30 +49,32 @@
 											<div class="invalid-feedback">Please provide a title
 												for your ad.</div>
 										</div>
-										
-										
+
+
 										<div class="mb-3">
-										
-										
-										
-						  <label>Category Name</label>
-						<select class="form-control" id="adcategory" name="adcategory">
-						<option value="<%=rs.getString(6)%>"><%=rs.getString(7)%></option>
-						 <%
-					      Connection con1 = ConnectionProvider.getConnection();
-					      String sql1 = "select * from add_categories";
-					      PreparedStatement ps1 = con1.prepareStatement(sql1);
-					      ResultSet rs1 = ps1.executeQuery();
-					      
-					      while(rs1.next()){
-					        %>
-							      <option value="<%=rs1.getString("categoryId") %>"><%=rs1.getString("category") %></option>
-							      <%} %>
-						</select> 
-						
-							</div>			
-										
-	
+
+
+
+											<label>Category Name</label> <select class="form-control"
+												id="adcategory" name="adcategory">
+												<option value="<%=rs.getString(6)%>"><%=rs.getString(7)%></option>
+												<%
+												Connection con1 = ConnectionProvider.getConnection();
+												String sql1 = "select * from add_categories";
+												PreparedStatement ps1 = con1.prepareStatement(sql1);
+												ResultSet rs1 = ps1.executeQuery();
+
+												while (rs1.next()) {
+												%>
+												<option value="<%=rs1.getString("categoryId")%>"><%=rs1.getString("category")%></option>
+												<%
+												}
+												%>
+											</select>
+
+										</div>
+
+
 										<div class="mb-3">
 											<label class="form-label">Ad Description</label>
 											<textarea class="form-control" placeholder="Ad Details.. "
@@ -101,8 +102,6 @@
 										<%
 										cnt++;
 										}
-
-									
 										%>
 
 									</form>

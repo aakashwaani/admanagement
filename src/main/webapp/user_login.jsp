@@ -4,14 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>  User  LogIn</title>
 <jsp:include page="links.jsp"></jsp:include>
 
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-
-
 
 
 	<section class="Registration">
@@ -45,6 +43,9 @@
 							</div>
 
 						</form>
+						<p class="text-center margin-bottom-none mt-5">
+							Don't have an account? <a href="userRegistration.jsp"><strong>Signup</strong></a>
+						</p>
 					</div>
 				</div>
 			</div>

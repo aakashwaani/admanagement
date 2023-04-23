@@ -26,93 +26,40 @@
 				<div class="col-lg-8 col-md-6 col-lg-8">
 					<div class="row">
 						<div class="col-lg-12">
+							<%
+							int cnt = 1;
+							Connection con = ConnectionProvider.getConnection();
+							String sql = "select ads.*, add_categories.* from ads as ads inner join add_categories as add_categories on ads.adCategory = add_categories.categoryId where ads.adId=?";
+							PreparedStatement ps = con.prepareStatement(sql);
+							ps.setString(1, request.getParameter("id"));
+							ResultSet rs = ps.executeQuery();
+
+							while (rs.next()) {
+							%>
 							<div class="item single-ads">
 								<div class="item-ads-grid margin-bottom-none">
 									<div class="item-title-single">
-										<a href="single.html">
-											<h1>Bungh Food Festival at Sayaji Hotel</h1>
-										</a>
+										<h2><%=rs.getString("adTitle")%>
+										</h2>
 									</div>
 									<div class="item-img-grid">
-
 										<div id="sync1" class="">
 											<div class="item">
 												<a href=""> <img alt=""
-													style="height: 800px !important;"
-													src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/db78d972182051.5bdf1de4dcf77.jpg//"
-													class="img-responsive img-center"></a>
+													style="height: 500px !important;"
+													src="shopkeeper/<%=rs.getString("adImage")%>"
+													class="img-responsive img-center" />
+												</a>
 											</div>
 
-										</div>
-										<div id="sync2" class="owl-carousel">
-											<div class="item">
-												<img alt="" src="images/single-ads/small/1.jpg"
-													class="img-responsive img-center">
-											</div>
 										</div>
 									</div>
 									<div class="single-item-meta">
 										<h4>
-											<strong>Spesification</strong>
-										</h4>
-										<table
-											class="table table-condensed table-hover table-bordered">
-											<tbody>
-												<tr>
-													<td>Classified ID</td>
-													<td>012345</td>
-												</tr>
-												<tr>
-													<td>Condition</td>
-													<td>New</td>
-												</tr>
-												<tr>
-													<td>Brand</td>
-													<td>Samsung</td>
-												</tr>
-												<tr>
-													<td>Payments</td>
-													<td>PayPal, Credit Card</td>
-												</tr>
-											</tbody>
-										</table>
-										<h4>
 											<strong>Description</strong>
 										</h4>
-										<p>Sed ut perspiciatis unde omnis iste natus error sit
-											voluptatem accusantium doloremque laudantium, totam rem
-											aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-											architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-											voluptatem quia voluptas sit aspernatur aut odit aut
-											fugit,sunt explicabo. Nemo enim ipsam voluptatem quia
-											voluptas sit aspernatur aut odit aut fugit,sunt explicabo.
-											Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-											odit aut fugit,sunt explicabo. Nemo enim ipsam voluptatem
-											quia voluptas sit aspernatur aut odit aut fugit, sed quia
-											consequuntur magni dolores eos qui ratione voluptatem sequi
-											nesciunt.</p>
-										<ul>
-											<li><i class="fa fa-angle-right fa-fw"
-												aria-hidden="true"></i> Geotagging &ndash; add location info
-												to your photos</li>
-											<li><i class="fa fa-angle-right fa-fw"
-												aria-hidden="true"></i> Object tracking &ndash; lock focus
-												on a specific object</li>
-											<li><i class="fa fa-angle-right fa-fw"
-												aria-hidden="true"></i> Red-eye reduction</li>
-											<li><i class="fa fa-angle-right fa-fw"
-												aria-hidden="true"></i> Image capture, supported file
-												format: JPEG</li>
-											<li><i class="fa fa-angle-right fa-fw"
-												aria-hidden="true"></i> Image playback, supported file
-												formats: BMP, GIF, JPEG, PNG; WebP</li>
-											<li><i class="fa fa-angle-right fa-fw"
-												aria-hidden="true"></i> Video capture, supported file
-												formats: 3GPP, MP4</li>
-											<li><i class="fa fa-angle-right fa-fw"
-												aria-hidden="true"></i> Video playback, supported file
-												formats: 3GPP, MP4, M4V, AvI, XVID, WEBM</li>
-										</ul>
+										<p><%=rs.getString("adDetails")%></p>
+
 									</div>
 									<div class="item-footer">
 										<div class="row">
@@ -141,20 +88,30 @@
 									</div>
 								</div>
 							</div>
+							<%
+							}
+							%>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-6 col-lg-4">
 					<div class="widget user-widget">
-						<div class="widget-body text-center">
-							<img class="user-dp" alt="User Image" src="images/user.jpg">
-							<span class="user-status user-online"></span>
+						<%
+						String query = "SELECT * FROM shop WHERE shopCategoryId = ?";
+						PreparedStatement ps1 = con.prepareStatement(query);
+						ps1.setString(1, request.getParameter("id"));
+						ResultSet rs1 = ps1.executeQuery();
 
-							<h2 class="seller-name">John Doe</h2>
+						while (rs1.next()) {
+						%>
+						<div class="widget-body text-center">
+							<img class="user-dp" alt="User Image"
+								src=""> <span
+								class="user-status user-online"></span>
+
+							<h2 class="seller-name"><%=rs1.getString("shopName")%></h2>
 							<p class="seller-detail">
-								<i class="fa fa-map-marker"></i> Location: <strong>Orlando</strong><br>
-								<i class="fa fa-clock-o"></i> Joined : <strong>21 June
-									2020</strong>
+								<i class="fa fa-map-marker"></i> Location: <strong><%=rs1.getString("shopLocation")%></strong><br>
 							</p>
 						</div>
 						<div class="widget-footer">
@@ -173,6 +130,9 @@
 								</div>
 							</div>
 						</div>
+						<%
+						}
+						%>
 					</div>
 
 				</div>

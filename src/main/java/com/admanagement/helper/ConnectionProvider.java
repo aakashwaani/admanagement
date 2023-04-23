@@ -12,7 +12,7 @@ public class ConnectionProvider {
 				Class.forName("com.mysql.jdbc.Driver");
 				con = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/advertisement_management_db?characterEncoding=utf8", "root", "root");
-				System.out.println(con);
+
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

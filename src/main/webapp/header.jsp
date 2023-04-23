@@ -73,7 +73,7 @@
 							href="my-ads.html"><i class="fa mr-2 fa-pencil"></i> My Ads</a> <a
 							class="dropdown-item" href="settings.html"><i
 							class="fa mr-2 fa-gear"></i> Settings</a> <a class="dropdown-item"
-							href="login.html"><i class="fa mr-2 fa-power-off"></i> Log
+							href="logout.jsp"><i class="fa mr-2 fa-power-off"></i> Log
 							Out</a>
 					</div>
 				</li>
@@ -103,17 +103,27 @@
 							Here <b class="caret"></b>
 					</a>
 						<div class="dropdown-menu">
-							<a class="dropdown-item" href="User_Registration.jsp"><i
+							<a class="dropdown-item" href="userRegistration.jsp"><i
 								class="fa mr-2 fa-angle-right"></i> Register</a> <a
 								class="dropdown-item" href="user_login.jsp"><i
 								class="fa mr-2 fa-angle-right"></i> Login</a>
 						</div></li>
-					<li class="nav-item"><a class="nav-link" href="shopregister.jsp">
-							Shop Register</a></li>
+					<%
+					if (session.getAttribute("userId") != null) {
+					%>
+
+					<li class="nav-item"><a class="nav-link"
+						href="shopregister.jsp"> Shop Register</a></li>
+
+					<%
+					}
+					%>
 				</ul>
 			</div>
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item"><a class="nav-link" href="chat.jsp">
+				
+				
 						<button class="btn btn-primary" type="button">Chat</button>
 				</a></li>
 				<li class="nav-item"><a class="nav-link"

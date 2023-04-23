@@ -10,6 +10,19 @@
 		<meta name="author" content="">
 		<title>Online Advertisement System</title>
 		<jsp:include page="links.jsp"></jsp:include>
+		
+		<%
+		response.setHeader("Cache-Control", "no-cache,no-store,must-revalidate");
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Expires", "0");
+
+			if(session.getAttribute("userId")==null){
+				response.sendRedirect("user_login.jsp");
+			}
+		
+		%>
+		
+		
 	</head>
 
 	<body>

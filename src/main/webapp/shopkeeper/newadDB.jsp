@@ -15,7 +15,7 @@ PreparedStatement stmt = null;
 try {
 
 	MultipartRequest m = new MultipartRequest(request,
-	"/Users/snehajature/eclipse-workspace/admanagement/src/main/webapp/shopkeeper/assets/img",
+	"C:/Users/Akash/eclipse-workspace/Online_Advertisement_System/src/main/webapp/shopkeeper/assets/img",
 	1048 * 1048 * 1048);
 
 	conn = ConnectionProvider.getConnection();
@@ -25,7 +25,7 @@ try {
 	String adtitle = m.getParameter("adtitle");
 	String adcategory = m.getParameter("adcategory");
 	String addetails = m.getParameter("addetails");
-	String adimage = "/img/" + m.getFilesystemName("adimage");
+	String adimage = "assets/img/" + m.getFilesystemName("adimage");
 
 	stmt.setString(1, adtitle);
 	stmt.setString(2, adcategory);

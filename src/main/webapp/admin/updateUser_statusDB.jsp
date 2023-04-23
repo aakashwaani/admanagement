@@ -6,7 +6,7 @@
 
 <%
 String userId = request.getParameter("userId");
-String type = request.getParameter("type");
+String type = request.getParameter("status");
 
 Connection con = ConnectionProvider.getConnection();
 PreparedStatement ps = null;
@@ -14,12 +14,12 @@ String sql = "";
 int done = 0;
 
 if (type.equals("Deactivated")) {
-	sql = "update app_user set user_status ='Activated' where userId=?";
+	sql = "update app_user set appuser_status ='Activated' where userId=?";
 	ps = con.prepareStatement(sql);
 	ps.setString(1, userId);
 	done = ps.executeUpdate();
 } else {
-	sql = "update app_user set user_status='Deactivated' where userId=?";
+	sql = "update app_user set appuser_status='Deactivated' where userId=?";
 	ps = con.prepareStatement(sql);
 	ps.setString(1, userId);
 	done = ps.executeUpdate();

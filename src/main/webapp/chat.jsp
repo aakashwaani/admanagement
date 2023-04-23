@@ -1,5 +1,9 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="java.sql.*"%>
+<%@page import="com.admanagement.helper.ConnectionProvider"%>
+
 <!DOCTYPE html>
 <html>
 
@@ -110,7 +114,9 @@ body {
 
 .chat .chat-history {
 	padding: 20px;
-	border-bottom: 2px solid #fff
+	border-bottom: 2px solid #fff;
+	    height: 500px;
+    overflow: auto;
 }
 
 .chat .chat-history ul {
@@ -137,7 +143,9 @@ body {
 
 .chat .chat-history .message-data-time {
 	color: #434651;
-	padding-left: 6px
+	padding-left: 6px;
+	
+	
 }
 
 .chat .chat-history .message {
@@ -275,8 +283,31 @@ body {
 	}
 }
 </style>
+
+<script type="text/javascript">
+
+function getId(a){
+	console.log(a)
+}
+</script>
 <body>
+	<%
+	Connection con = ConnectionProvider.getConnection();
+	int loginedInUserId = 1;
+	String reciverId = (request.getParameter("recId"));
+	Statement st = null;
+	ResultSet rs = null;
+	PreparedStatement pstm = null;
+	System.out.println("Reciver Id :" +  reciverId);
+	System.out.println("Sender Id :" + loginedInUserId);
+	System.out.println("\n");
+
+
+	%>
+	
+	
 	<jsp:include page="header.jsp"></jsp:include>
+
 
 	<div class="container my-5">
 		<div class="row clearfix">
@@ -290,62 +321,28 @@ body {
 							<input type="text" class="form-control" placeholder="Search...">
 						</div>
 						<ul class="list-unstyled chat-list mt-2 mb-0">
-							<li class="clearfix"><img
+						<%
+						st = con.createStatement();
+
+						rs = st.executeQuery("select * from app_user where userId != " + loginedInUserId);
+								while (rs.next()) {
+								%>
+							<li class="clearfix" onclick="sendData(<%= rs.getInt("userId")%>)"><img
 								src="https://bootdey.com/img/Content/avatar/avatar1.png"
-								alt="avatar">
+								alt="avatar" >
 								<div class="about">
-									<div class="name">Vincent Porter</div>
-									<div class="status">
-										<i class="fa fa-circle offline"></i> left 7 mins ago
-									</div>
+									<div class="name mt-2 fw-bold" ><%=rs.getString("userFirstName") + " " + rs.getString("userMiddletName") + " "
+											+ rs.getString("userLastName") %></div>
 								</div></li>
-							<li class="clearfix active"><img
-								src="https://bootdey.com/img/Content/avatar/avatar2.png"
-								alt="avatar">
-								<div class="about">
-									<div class="name">Aiden Chavez</div>
-									<div class="status">
-										<i class="fa fa-circle online"></i> online
-									</div>
-								</div></li>
-							<li class="clearfix"><img
-								src="https://bootdey.com/img/Content/avatar/avatar3.png"
-								alt="avatar">
-								<div class="about">
-									<div class="name">Mike Thomas</div>
-									<div class="status">
-										<i class="fa fa-circle online"></i> online
-									</div>
-								</div></li>
-							<li class="clearfix"><img
-								src="https://bootdey.com/img/Content/avatar/avatar7.png"
-								alt="avatar">
-								<div class="about">
-									<div class="name">Christian Kelly</div>
-									<div class="status">
-										<i class="fa fa-circle offline"></i> left 10 hours ago
-									</div>
-								</div></li>
-							<li class="clearfix"><img
-								src="https://bootdey.com/img/Content/avatar/avatar8.png"
-								alt="avatar">
-								<div class="about">
-									<div class="name">Monica Ward</div>
-									<div class="status">
-										<i class="fa fa-circle online"></i> online
-									</div>
-								</div></li>
-							<li class="clearfix"><img
-								src="https://bootdey.com/img/Content/avatar/avatar3.png"
-								alt="avatar">
-								<div class="about">
-									<div class="name">Dean Henry</div>
-									<div class="status">
-										<i class="fa fa-circle offline"></i> offline since Oct 28
-									</div>
-								</div></li>
+								
+								<%
+									}
+								%>
+							
 						</ul>
 					</div>
+
+
 					<div class="chat">
 						<div class="chat-header clearfix">
 							<div class="row">
@@ -356,54 +353,160 @@ body {
 										alt="avatar">
 									</a>
 									<div class="chat-about">
-										<h6 class="m-b-0">Aiden Chavez</h6>
-										<small>Last seen: 2 hours ago</small>
+										<h5 class="mt-2">
+											<%
+											try {
+												
+												st = con.createStatement();
+												rs = st.executeQuery(("select userFirstName,userMiddletName,userLastName from app_user where userId = " + reciverId));
+												while (rs.next()) {
+													out.print(rs.getString("userFirstName") + " " + rs.getString("userMiddletName") + " "
+													+ rs.getString("userLastName"));
+
+												}
+											} catch (Exception e) {
+												e.printStackTrace();
+											}
+											%>
+										</h5>
 									</div>
 								</div>
 
 							</div>
 						</div>
-						<div class="chat-history">
-							<ul class="m-b-0">
+						<div class="chat-history" id ="chatHis">
+							<ul class="m-b-0" id="dynamicMessage" style="height:500px">
+								<%
+								pstm = con.prepareStatement("select * from chat_history where (senderId = ? and recieverId = ?) or (senderId = ? and recieverId = ?) order by messageTime");
+														//	select * from chat_history where (senderId = 5 and recieverId = 3) or (senderId = 3 and recieverId = 5);
+	
+								
+								pstm.setInt(1, loginedInUserId);
+								pstm.setString(2, reciverId);
+								pstm.setString(3, reciverId);
+								pstm.setInt(4, loginedInUserId);
+
+								
+								
+								rs = pstm.executeQuery();
+								while (rs.next()) {
+									if (loginedInUserId == Integer.parseInt(rs.getString("senderId"))) {
+								%>
+
 								<li class="clearfix">
 									<div class="message-data text-right">
-										<span class="message-data-time">10:10 AM, Today</span> <img
-											src="https://bootdey.com/img/Content/avatar/avatar7.png"
+										<span class="message-data-time"><%=rs.getString("messageTime")%></span>
+										<img src="https://bootdey.com/img/Content/avatar/avatar7.png"
 											alt="avatar">
 									</div>
-									<div class="message other-message float-right">Hi Aiden,
-										how are you? How is the project coming along?</div>
+									<div class="message other-message float-right"><%=rs.getString("message")%></div>
 								</li>
+								<%
+								} else {
+								%>
 								<li class="clearfix">
 									<div class="message-data">
-										<span class="message-data-time">10:12 AM, Today</span>
+										<span class="message-data-time"><%=rs.getString("messageTime")%></span>
 									</div>
-									<div class="message my-message">Are we meeting today?</div>
+									<div class="message my-message"><%=rs.getString("message")%></div>
 								</li>
-								<li class="clearfix">
-									<div class="message-data">
-										<span class="message-data-time">10:15 AM, Today</span>
-									</div>
-									<div class="message my-message">Project has been already
-										finished and I have results to show you.</div>
-								</li>
+
+
+
+								<%
+								}
+								}
+								%>
+
+
 							</ul>
 						</div>
-						<div class="chat-message clearfix">
-							<div class="input-group mb-0">
-								<div class="input-group-prepend">
-									<span class="input-group-text"><i class="fa fa-send"></i></span>
+
+
+
+						<form id="sendMessage">
+							<div class="chat-message clearfix">
+								<div class="input-group mb-0">
+									<input type="hidden" value="<%=loginedInUserId%>" name="senderId"> 
+									<input type="hidden" value="<%=reciverId%>" name="reciverId"> 
+										
+										
+									<input type="text" class="form-control" placeholder="Enter text here..." name="message">
+									<div class="input-group-prepend">
+										<button type="submit" class="input-group-text">
+											<i class="fa fa-send" onclick="setScroll();"></i>
+										</button>
+									</div>
+
 								</div>
-								<input type="text" class="form-control"
-									placeholder="Enter text here...">
 							</div>
-						</div>
+						</form>
+						
+						
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<jsp:include page="footer.jsp"></jsp:include>
+	<script src="jquery-3.6.4.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+
+
+
+
+<script type="text/javascript">
+		
+		function sendData(x){
+			location.href="chat.jsp?recId="+x;
+			$("#dynamicMessage").load('demo.jsp #dynamicMessage');
+
+		}
+		
+
+	 function setScroll(){
+		var delayInMilliseconds = 100; //1 second
+		setTimeout(function() {
+			var messageBody = document.querySelector('#chatHis');
+			 messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+		}, delayInMilliseconds);
+			 
+	}
+
+	setScroll();
+	
+
+		$(document).ready(function() {$("#sendMessage").submit(function(event) {
+
+												event.preventDefault();
+												//let f = new FormData($("#addAcademicYear")[0])
+
+												$.ajax({
+															type : 'POST',
+															url : 'DB/sendMessageDB.jsp',
+															data : $("#sendMessage").serialize(),
+															success : function(responce) {
+																
+																console.log(responce.trim())
+																if (responce.trim() == "1") {
+																	
+																	$("#sendMessage")[0].reset()
+																	$("#dynamicMessage").load('chat.jsp?recId=<%= reciverId%> #dynamicMessage');
+																	setScroll();
+
+																} else {
+																	console.log("Something went wrong")
+
+																}
+															}
+														})
+											})
+							
+						});
+	</script>
+
 
 </body>
 
