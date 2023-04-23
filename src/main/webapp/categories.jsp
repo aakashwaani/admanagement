@@ -125,7 +125,6 @@ b {
 					Statement stmt = con1.createStatement();
 					ResultSet rs = stmt1.executeQuery("select * from add_categories");
 					while (rs.next()) {
-						System.out.println(rs.getString("categoryImage"));
 				%>
 
 				<div class="col-lg-4 col-md-6 my-lg-0 my-3">
@@ -139,7 +138,7 @@ b {
 									alt="">
 							</div>
 							<div class="d-flex flex-column">
-								<a href="categoriesad.jsp?categoryId<%=rs.getInt("categoryId")%>"><b><%=rs.getString("category")%></b>
+								<a href="categoriesad.jsp?categoryId=<%=rs.getInt("categoryId")%>"><b><%=rs.getString("category")%></b>
 								</a>
 							</div>
 						</div>

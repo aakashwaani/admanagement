@@ -48,42 +48,77 @@
 				<div class="col-lg-12 col-md-8 col-lg-12">
 					<div class="row">
 						<div class="col-lg-3">
+							<section class="mx-auto my-5" style="max-width: 23rem;">
 
-							<div class="card my-4">
+								<div class="card">
+									<%
+									int cnt = 1;
+									Connection con = ConnectionProvider.getConnection();
+									String sql = "select ads.*, add_categories.* from ads as ads inner join add_categories as add_categories on ads.adCategory = add_categories.categoryId where ads.adId=?";
+									PreparedStatement ps = con.prepareStatement(sql);
+									ps.setString(1, request.getParameter("categoryId"));
+									ResultSet rs = ps.executeQuery();
+
+									while (rs.next()) {
+									%>
+									<div class="bg-image hover-overlay ripple"
+										data-mdb-ripple-color="light">
+										<a href="singlead.jsp?id=<%=rs.getString("categoryId")%>"><img
+											src="shopkeeper/<%=rs.getString("adImage")%>"
+											class="img-fluid" /></a>
+									</div>
+									<div class="card-body">
+										<h4 class="card-title font-weight-bold">
+											<a><%=rs.getString("adTitle")%></a>
+										</h4>
+
+										<p class="card-text"><%=rs.getString("adDetails")%></p>
+										<hr class="my-4" />
+
+									</div>
+								</div>
+								<%
+								}
+								%>
+
+							</section>
+							<%-- <div class="card my-4">
 
 								<%
 								int cnt = 1;
 								Connection con = ConnectionProvider.getConnection();
 								String sql = "select ads.*, add_categories.* from ads as ads inner join add_categories as add_categories on ads.adCategory = add_categories.categoryId where ads.adId=?";
 								PreparedStatement ps = con.prepareStatement(sql);
-								ps.setString(1, request.getParameter("adId"));
+								ps.setString(1, request.getParameter("categoryId"));
 								ResultSet rs = ps.executeQuery();
 
 								while (rs.next()) {
 								%>
 
-								<h1><%=rs.getString("adTitle")%></h1>
-								<img src="<%=rs.getString("adImage")%>"> <a><%=rs.getString("adDetails")%></a>
+								<h5><%=rs.getString("adTitle")%></h5>
+								<img src="shopkeeper/<%=rs.getString("adImage")%>"> <a><%=rs.getString("adDetails")%></a>
 								<a><%=rs.getString("adTitle")%></a>
 							</div>
-
-
 
 							<%
 							}
 							%>
 
+						</div> --%>
+
+							<div class="col-lg-3"></div>
+							<div class="col-lg-3"></div>
+							<div class="col-lg-3"></div>
 						</div>
-						<div class="col-lg-3"></div>
-						<div class="col-lg-3"></div>
-						<div class="col-lg-3"></div>
 					</div>
+
+
 				</div>
 			</div>
 		</div>
 	</section>
 
-
+	<div class="container"></div>
 
 	<jsp:include page="footer.jsp"></jsp:include>
 

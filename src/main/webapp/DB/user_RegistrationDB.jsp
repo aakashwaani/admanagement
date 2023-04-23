@@ -18,7 +18,7 @@ String MOB = m.getParameter("MOB");
 String email = m.getParameter("email");
 String password = m.getParameter("password");
 String userRole = m.getParameter("roleName");
-String photo="../images/"+m.getFilesystemName("image");
+String photo="images/"+m.getFilesystemName("image");
 
 
 int done = 0;

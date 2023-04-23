@@ -293,7 +293,7 @@ function getId(a){
 <body>
 	<%
 	Connection con = ConnectionProvider.getConnection();
-	int loginedInUserId = 6;
+	int loginedInUserId = 1;
 	String reciverId = (request.getParameter("recId"));
 	Statement st = null;
 	ResultSet rs = null;
