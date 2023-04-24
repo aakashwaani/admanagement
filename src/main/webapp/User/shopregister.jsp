@@ -17,7 +17,9 @@
 
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	
+	<%
+	int logedInUserId = 2;
+	%>
 	<section class="breadcumb_area">
 		<div class="container">
 			<div class="row d-flex justify-content-center">
@@ -85,34 +87,11 @@
 									</div>
 								</div>
 								<div class="form-group">
-								
-								<%
-										Connection con1 = ConnectionProvider.getConnection();
-										String sql1 = "select app_user.* , shop.* from app_user inner join app_user.userId = shop.shopkeeperId";
-										PreparedStatement ps1 = con1.prepareStatement(sql1);
-										ResultSet rs1 = ps1.executeQuery();
-										
-
-										while (rs1.next()) {
-										%>
-										<%-- <option value="<%=rs1.getString("userId")%>"><%=rs1.getString("userFirstName")%> <%=rs1.getString("userMiddletName")%>
-										<%=rs1.getString("userLastName")%></option>
-										 --%>
-										 
-<%-- 										 <input type="hidden" name="shopkeeperId" value="<%=rs1.getString("userId")%> ">
- --%>										 
-										 <input type="hidden" name="shopOwnerName" class="form-control"
-										value="<%=rs1.getString("userFirstName")%> <%=rs1.getString("userMiddletName")%> <%=rs1.getString("userLastName")%>" required>
+									<input type="hidden" name="shopOwnerName" class="form-control"
+										value="<%=logedInUserId%>" required>
 									<div class="valid-feedback">Looks good!</div>
 									<div class="invalid-feedback">Please Enter Shop Owner
 										Name.</div>
-										 
-										 <%
-										}
-										%>
-								
-								
-									
 								</div>
 
 								<div class="form-group">

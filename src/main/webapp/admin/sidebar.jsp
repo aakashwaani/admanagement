@@ -32,6 +32,13 @@
 					data-feather="message-circle"></i> <span class="align-middle">Manage
 						Users</span>
 			</a></li>
+			
+			<li class="sidebar-item"><a class="sidebar-link"
+				href="view_shopDetails.jsp"> <i class="align-middle" data-feather="eye"></i>
+					<span class="align-middle">View Shops</span>
+			</a></li>
+			
+			
 			<li class="sidebar-item"><a class="sidebar-link"
 				href="userrole.jsp"> <i class="align-middle"
 					data-feather="user"></i> <span class="align-middle">
